@@ -1,0 +1,23 @@
+Let ( [
+  tabList = LayoutObjectNames ( Get ( FileName ) ; Get ( LayoutName ) )
+  ] ;
+
+  TextTrimCR ( 
+    ActiveTabListLoop ( tabList ; ValueCount ( tabList ) ; 1 ) 
+    )
+
+  ) //  end Let
+  
+/* —————————————————————————————— //
+NAME:
+  LayoutActiveTabList ( )
+
+PURPOSE:
+  Returns list of frontmost tabs (not including containing tabs)
+
+EXAMPLES:
+  LayoutActiveTabList ( ) = "tab_contact_address¶tab_company_employee"
+
+HISTORY:
+	Created: 2010-Aug-27 11h24 PST — Will M. Baker
+*/

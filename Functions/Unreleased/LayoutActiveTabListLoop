@@ -1,0 +1,30 @@
+Case (
+  rep > maxReps ; "" ;
+
+  Let ( [
+    object = GetValue ( listObjects ; rep )
+    ] ;
+
+    Case ( 
+      GetLayoutObjectAttribute ( object ; "isFrontTabPanel" ) ; 
+        object & ¶ ; ""
+      ) &
+    ActiveTabListLoop ( listObjects ; maxReps ; rep + 1 )
+
+    )  //  end Let
+
+  )  //  end Case
+
+/* —————————————————————————————— //
+NAME:
+  LayoutActiveTabListLoop ( listOfObjects ; maxReps ; rep )
+
+PURPOSE:
+  Performs operations for LayoutActiveTabList ( )
+
+EXAMPLES:
+
+
+HISTORY:
+	Created: 2010-Aug-27 11h24 PST — Will M. Baker
+*/
