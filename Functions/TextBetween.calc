@@ -1,0 +1,23 @@
+Let ( [
+  open = Position ( string ; openCharacter ; 1 ; 1 ) ;
+  close = Position ( string ; closeCharacter ; open ; 1 )
+  ] ;
+
+  Case ( open > 0 ; Middle ( string ; open + 1 ; close - open - 1 ) ; "" )
+
+  )
+
+/* —————————————————————————————— //
+NAME:
+	TextBetween ( string ; openCharacter ; closeCharacter )
+
+PURPOSE:
+	Returns the text between the first instance of the two enclosing characters. If both characters are not present, with open before close, null is returned.
+
+EXAMPLES:
+	TextBetween ( "Repetition[5]" ; "[" ; "]" ) = 5
+
+HISTORY:
+	Created: 2010-Apr-27 — Donovan Chandler
+	Modified: 2010-Oct-15 18h04 PST — Will M. Baker ; converted from Donovan's function: text.getBetween ( text; openChar; closeChar; occurrence ).
+*/
