@@ -1,0 +1,16 @@
+#ExcludeNth ( encodedString ; name ; 1 )
+
+/* —————————————————————————————— //
+NAME:
+	#Exclude ( encodedString ; name )
+
+PURPOSE:
+	Returns encodedString with first occurrence of name element removed.
+
+EXAMPLES:
+	#Exclude ( "<:CITY:=Oakland:><:CITY:=Cupertino:>" ; "CITY" ) =
+	"<:CITY:=Cupertino:>>"
+
+HISTORY:
+	Created: 2010-Oct-25 09h36 PST — Donovan Chandler
+*/
