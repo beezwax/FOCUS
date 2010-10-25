@@ -1,5 +1,5 @@
 Let ( [
-  match = "<:" & Substitute ( name ; [ "=" ; "\=" ] ; [ "¶" ; "\¶" ] ) & ":=" ;
+  match = "<:" & #Encode ( name ) & ":=" ;
   pstart = Position ( encodedString ; match ; 1 ; rep ) ;
   start = pstart + Length ( match ) ;
   end = Position ( encodedString ; ":>" ; start ; 1 ) ;
@@ -26,4 +26,5 @@ EXAMPLES:
 HISTORY:
 	Created: 2010-Apr-09 16h21 PST — Will M. Baker based on DictGet by Jesse Antunes
 	Modified: 2010-Aug-31 18h00 PST — Donovan Chandler ; Moved decoding into subfunction.
+	Modified: 2010-Oct-25 09h43 PST — Donovan Chandler ; Now encodes name parameter with subfunction
 */
