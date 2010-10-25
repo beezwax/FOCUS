@@ -7,10 +7,9 @@ Let ( [
 
   Case ( 
     start = 0 ; encodedString ; 
-    #Decode (
-      Left ( encodedString ; start - 1 ) &
-      Middle ( encodedString ; end + 1; Length ( encodedString ) ) )
-  )
+
+    Left ( encodedString ; start - 1 ) &
+    Middle ( encodedString ; end + 1; Length ( encodedString ) ) )
 
 )
 
