@@ -1,0 +1,19 @@
+#ReplaceNth ( encodedString ; name ; 1 ; newEncodedString )
+
+/* —————————————————————————————— //
+NAME:
+	#ReplaceNth ( encodedString ; name ; newEncodedString )
+
+PURPOSE:
+	Returns encodedString with first occurrence of pair replaced.
+	
+EXAMPLES:
+	#Replace (
+		"<:CITY:=Oakland:><:CITY:=Cupertino:>" ;
+		"CITY" ; # ( "CITY" ; "Portland" ) 
+	) =
+	"<:CITY:=Portland:><:CITY:=Cupertino:>"
+
+HISTORY:
+	Created: 2010-Oct-25 09h36 PST — Donovan Chandler
+*/

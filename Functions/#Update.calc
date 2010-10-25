@@ -1,0 +1,16 @@
+#UpdateNth ( encodedString ; name ; 1 ; newValue )
+
+/* —————————————————————————————— //
+NAME:
+	#Update ( encodedString ; name ; newValue )
+
+PURPOSE:
+	Returns encodedString with first occurrence of name element replaced.
+
+EXAMPLES:
+	#UpdateNth ( "<:CITY:=Oakland:><:CITY:=Cupertino:>" ; "CITY" ; "Mountain View" ) =
+	"<:CITY:=Mountain View:><:CITY:=Cupertino:>"
+
+HISTORY:
+	Created: 2010-Oct-25 10h21 PST — Donovan Chandler
+*/

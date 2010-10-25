@@ -1,0 +1,33 @@
+Let ( [
+  match = "<:" & #Encode ( name ) & ":=" ;
+  pairStart = Position ( encodedString ; match ; 1 ; rep ) ;
+  endMatch = ":>" ;
+  pairEnd = Position ( encodedString ; endMatch ; pairStart ; 1 ) + Length ( endMatch ) - 1
+  ] ;
+
+  Case ( 
+    pairStart = 0 ; encodedString ; 
+
+    Left ( encodedString ; pairStart - 1 ) &
+    newEncodedString &
+    Middle ( encodedString ; pairEnd + 1; Length ( encodedString ) ) )
+
+)
+
+/* —————————————————————————————— //
+NAME:
+	#ReplaceNth ( encodedString ; name ; rep ; newEncodedString )
+
+PURPOSE:
+	Returns encodedString with Nth occurrence of pair replaced.
+
+EXAMPLES:
+	#ReplaceNth (
+		"<:CITY:=Oakland:><:CITY:=Cupertino:>" ;
+		"CITY" ; 1 ; # ( "CITY" ; "Portland" ) 
+	) =
+	"<:CITY:=Portland:><:CITY:=Cupertino:>"
+
+HISTORY:
+	Created: 2010-Oct-25 09h36 PST — Donovan Chandler
+*/
