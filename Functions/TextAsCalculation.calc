@@ -1,0 +1,28 @@
+Let ( [
+  ex = stringOrCalculation ;
+  eval = Evaluate ( ex )
+  ] ;
+  Case (
+    IsEmpty ( ex ) ; "\"\"" ;
+    eval = "?" ; Quote ( ex ) ;
+    ex
+  )
+)
+
+/* —————————————————————————————— //
+NAME:
+	TextAsCalculation ( stringOrCalculation )
+
+PURPOSE:
+	Returns input in form suitable for use in a calculation.
+	Plain strings are quoted.
+	Evaluatable calculations are unquoted.
+
+EXAMPLES:
+	TextAsCalculation ( "Left( \"foobar\"; 3 )" ) = "foo"
+	TextAsCalculation ( "foobar" ) = "foobar"
+	TextAsCalculation ( "" ) = "\"\""
+
+HISTORY:
+	Created: 2010-Nov-01 10h16 PST — Donovan A. Chandler
+*/
