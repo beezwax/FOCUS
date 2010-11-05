@@ -1,4 +1,4 @@
-#ReplaceNth ( encodedString ; name ; 1 ; newEncodedString )
+ReplaceNth ( encodedString ; name ; 1 ; newEncodedString )
 
 /* —————————————————————————————— //
 NAME:
