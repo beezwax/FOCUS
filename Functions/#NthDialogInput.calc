@@ -1,0 +1,16 @@
+#Value ( #NthValue ( #P ( "DIALOG" ) ; "INPUT" ; rep ) ; name )
+
+/* —————————————————————————————— //
+NAME:
+	#NthDialogInput ( name ; rep )
+
+PURPOSE:
+	Assumes that the script parameter has been encoded for the SimpleDialog script, which encloses the entire dialog parameter as "DIALOG", and comprises one or more "INPUT" parameters. Returns the value associated with "name" from the Nth such input parameter.
+	Localizing script is responsible for casting the result's type (e.g. using GetAsNumber).
+
+EXAMPLES:
+
+HISTORY:
+	Created: 2010-Aug-27 13h14 PST — Will M. Baker
+	Modified:
+*/
