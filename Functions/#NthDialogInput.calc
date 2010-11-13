@@ -1,8 +1,8 @@
-#Value ( #NthValue ( #P ( "DIALOG" ) ; "INPUT" ; rep ) ; name )
+#Value ( #NthValue ( dialogHashContents ; "INPUT" ; rep ) ; name )
 
 /* —————————————————————————————— //
 NAME:
-	#NthDialogInput ( name ; rep )
+	#NthDialogInput ( dialogHashContents ; name ; rep )
 
 PURPOSE:
 	Assumes that the script parameter has been encoded for the SimpleDialog script, which encloses the entire dialog parameter as "DIALOG", and comprises one or more "INPUT" parameters. Returns the value associated with "name" from the Nth such input parameter.
@@ -12,5 +12,5 @@ EXAMPLES:
 
 HISTORY:
 	Created: 2010-Aug-27 13h14 PST — Will M. Baker
-	Modified:
+	Modified: 2010-Nov-12 17h24 PST — Donovan Chandler ; added dialogHashContents param
 */
