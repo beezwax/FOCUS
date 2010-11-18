@@ -1,0 +1,15 @@
+Left ( fullyQualifiedFieldName ; Position ( fullyQualifiedFieldName ; "::" ; 1 ; 1 ) - 1 )
+
+/* —————————————————————————————— //
+NAME:
+	FieldTableOccurrence ( fullyQualifiedFieldName )
+
+PURPOSE:
+	Returns just the table name from a fully qualified field name.
+
+EXAMPLES:
+	TableName ( "FOCUS::ID" ) = "FOCUS"
+
+HISTORY:
+	Created: 2010-Jan-29 17h00 PST — Will M. Baker
+*/
