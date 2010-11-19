@@ -1,6 +1,6 @@
 Case (
   // Object is not an active tab panel.
-  GetLayoutObjectAttribute ( object ; "isFrontTabPanel" ) ≠ 1 ; False ;
+  GetLayoutObjectAttribute ( object ; "isFrontTabPanel" ) ≠ 1 ; False ;
 
   Let ( [
     parentObject = GetLayoutObjectAttribute ( object ; "enclosingObject" )
