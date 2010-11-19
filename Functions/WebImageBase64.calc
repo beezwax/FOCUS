@@ -1,0 +1,57 @@
+"data:text/html,<html><head>
+<style type=\"text/css\">
+
+  /* Background Color */
+  body {
+    background-color: #" &
+      Case (
+        //-- If empty, use white
+        IsEmpty ( backgroundColor ) ; "FFFFFF" ;
+        backgroundColor
+      ) & ";
+    margin: 0
+  }
+
+  /* Scale Image (optional) */
+  img {
+    height: " & If ( stretchHeight ; "100%" ; "auto" ) & ";
+    width: " & If ( stretchWidth ; "100%" ; "auto" ) & "
+  }
+
+</style>
+</head>
+<body>
+<img src=\"data:image/gif;base64," & ¶ &
+
+// ---- Replace base64 data here ---- //
+
+base64Text &
+
+// ---- End base64 data ---- //
+
+"\">" & ¶ &
+"</body>
+</html>"
+
+/* —————————————————————————————— //
+NAME: 
+	WebImageBase64( base64Text ; backgroundColor ; stretchHeight ; stretchWidth )
+
+PURPOSE: 
+	Displays image stored in base64
+
+INPUT:
+	base64Text: Text in base64 format representing image
+	backgroundColor: CSS-valid color for background
+		(e.g., "white", "#00ff00", "rgb(255,0,255)" )
+	stretchHeight:  True causes image to fill full height of web viewer
+	stretchWidth:  True causes image to fill full width of web viewer
+
+NOTES
+	You can convert your image file to base64 here:
+	http://www.motobit.com/util/base64-decoder-encoder.asp
+
+HISTORY: 
+	Created: 2010-Nov-18 18h08 PST — Donovan A. Chandler
+	Technique discovered from Kevin Vile of Cleveland Consulting, Inc. in Sindelar's "Year in Review" session, DevCon 2009
+*/

@@ -1,0 +1,21 @@
+WebImageBase64(
+  FOCUS::LIBRARY_CODE_REP[index] ;
+  backgroundColor ;
+  stretchHeight ;
+  stretchWidth
+)
+
+/* —————————————————————————————— //
+NAME:
+	WebImageFromLibrary ( index ; backgroundColor ; stretchHeight ; stretchWidth )
+
+PURPOSE:
+	Returns text for rendering image in web viewer.
+	Retrieves base64 text from corresponding index in LIBRARY table.
+
+EXAMPLES:
+	
+
+HISTORY:
+	Created: 2010-Nov-18 18h35 PST — Donovan A. Chandler
+*/
