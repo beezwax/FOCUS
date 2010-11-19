@@ -15,6 +15,9 @@ Case (
       // If object is contained by another tab, is that tab active (and its tab, etc.).
       TabActiveLoop ( GetLayoutObjectAttribute ( object ; "enclosingObject" ) ) ; object & ¶ ;
 
+      // If object has no container or enclosure and is active
+      TabActiveLoop ( object ) ; object & ¶ ;
+      
       ""
 
       ) // end inner Case
