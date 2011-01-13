@@ -1,0 +1,15 @@
+PatternCount ( encodedString ; "<:" & name & ":=" )
+
+/* —————————————————————————————— //
+NAME:
+	#ValueCount ( encodedString ; name )
+
+PURPOSE:
+	Returns the number of times the name appears at the uppermost-level of the encodedString.
+
+EXAMPLES:
+
+
+HISTORY:
+	Created: 2010-Nov-17 15h19 PST — Will M. Baker
+*/
