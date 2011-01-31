@@ -1,0 +1,31 @@
+Let ( [
+  var = GetValue ( listOfVariables ; rep ) ;
+  value = 
+    Case ( 
+      Left ( var ; 1 ) = "$" ; Evaluate ( var ) ;
+      var
+    ) ;
+  invalid = ( value = "?" or IsEmpty ( value ) ) ;
+  newResults = If ( invalid ; List ( previousResults ; var ) )
+  ] ;
+  
+  Case (
+    rep < repMax ;
+      VarInvalidLoop ( listOfVariables ; rep + 1 ; repMax ; newResults ) ;
+    newResults
+  )
+)
+
+/* —————————————————————————————— //
+NAME:
+	VarInvalidLoop ( listOfVariables ; rep ; repMax ; previousResults )
+
+PURPOSE:
+	Performs recursion for VarInvalid ()
+
+EXAMPLES:
+	
+
+HISTORY:
+	Created: 2010-Aug-20 16h07 PST — Donovan A. Chandler
+*/

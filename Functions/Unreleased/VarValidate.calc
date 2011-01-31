@@ -1,0 +1,28 @@
+VarValidateLoop (
+  listOfVariables ;
+  1 ;
+  PatternCount ( listOfVariables ; ¶ ) + 1
+)
+
+/* —————————————————————————————— //
+NAME:
+	VarValidate( listOfVariables )
+
+PURPOSE:
+	Returns count of variables with invalid data
+
+EXAMPLES:
+	(where all variables contain values other than "?")
+	
+	VarValidate( "$_table¶$_field" ) = 0 
+	VarValidate( $_table & ¶ & $_field ) = 0
+	VarValidate( "¶¶" ) = 1
+	VarValidate( List ( $_empty_var ; $_good_var )) = 0 // CAUTION!!!
+	
+HISTORY:
+	Created: 2010-Aug-20 16h07 PST — Donovan A. Chandler
+
+NOTES:
+	Be careful using the List() function with this; it will remove lines that contain no value.  So this will not catch an error:
+	VarValidate( List ( $_empty_var ; $_good_var )) = 0 
+*/

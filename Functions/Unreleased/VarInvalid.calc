@@ -1,0 +1,29 @@
+VarInvalidLoop (
+  listOfVariables ;
+  1 ;
+  PatternCount ( listOfVariables ; ¶ ) + 1 ;
+  ""
+)
+
+/* —————————————————————————————— //
+NAME:
+	VarInvalid( listOfVariables )
+
+PURPOSE:
+	Returns list of names of variables containing invalid data
+
+EXAMPLES:
+	(Where $_table = "CONTACT" and $_field = "")
+	
+	VarInvalid ( "$_table¶$_field" ) = "$_field"
+	VarInvalid ( $_table & ¶ & $_field ) = "$_field"
+	VarInvalid ( $_table & $_field ) = ""
+	VarInvalid ( List ( $_table ; $_field ) ) = ""  // CAUTION!!!
+
+HISTORY:
+	Created: 2010-Aug-20 16h07 PST — Donovan A. Chandler
+
+NOTES:
+	Be careful using the List() function with this; it will remove lines that contain no value.  So this will not catch an error:
+	VarValidate( List ( $_table ; $_field )) = 0
+*/
