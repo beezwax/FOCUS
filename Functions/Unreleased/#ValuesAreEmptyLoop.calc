@@ -1,0 +1,42 @@
+Let ([
+  pathNew =
+    Substitute ( path ;
+      [ "[n]" ; "[" & rep & "]" ] ;
+      [ "[N]" ; "[" & rep & "]" ]
+    ) ;
+  value = #Node ( encodedString ; pathNew ) ;
+  isInvalid = IsEmpty ( value ) ;
+  newResult = previousResult + If ( isInvalid ; 1 )
+  ];
+  Case (
+    //-- Not Empty
+    not isInvalid and rep < repMax ;
+      #ValuesAreEmptyLoop ( encodedString ; path ; requireAllEmpty ; rep + 1 ; repMax ; newResult ) ;
+
+    //-- Empty and only one required
+    isInvalid and not requireAllEmpty ;
+      newResult ;
+
+    //-- Empty and last recursion
+    rep = repMax ;
+      If ( newResult = repMax ; 1 ; 0 ) ;
+
+    //-- Empty and still checking
+    rep < repMax ;
+      #ValuesAreEmptyLoop ( encodedString ; path ; requireAllEmpty ; rep + 1 ; repMax ; newResult )
+  )
+)
+
+/* —————————————————————————————— //
+path:
+	#ValuesAreEmptyLoop ( encodedString ; path ; requireAllEmpty ; rep ; repMax ; previousResult )
+
+PURPOSE:
+	Performs recursion for #ValuesAreEmpty ()
+
+EXAMPLES:
+	
+
+HISTORY:
+	Created: 2011-Feb-07 08h54 PST — Donovan A. Chandler
+*/

@@ -1,0 +1,33 @@
+#ValuesAreEmptyLoop (
+  encodedString ;
+  path ;
+  requireAllEmpty ;
+  1 ;
+  #ValueCountPath ( encodedString ; path ) ;
+  ""
+)
+
+/* —————————————————————————————— //
+NAME:
+	#ValuesAreEmpty ( encodedString ; path ; requireAllEmpty )
+
+PURPOSE:
+	Checks if one or all of values for certain named element are empty.
+
+EXAMPLES:
+	For $_text =
+		# ( "GRANDPARENT" ;
+			# ( "PARENT" ; # ( "CHILD" ; "foo" ) ) &
+			# ( "PARENT" ; # ( "CHILD" ; "" ) )
+		)
+
+	#ValuesAreEmpty ( $_text ; "GRANDPARENT/PARENT[N]/CHILD" ; 0 ) = 1
+	#ValuesAreEmpty ( $_text ; "GRANDPARENT/PARENT[N]/CHILD" ; 1 ) = 0
+
+HISTORY:
+	Created: 2011-Feb-07 09h20 PST — Donovan A. Chandler
+
+NOTES:
+	Performs searches for last node in path.
+	Assumes that the search node occurs once for every parent.
+*/
