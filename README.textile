@@ -1,0 +1,15 @@
+h1. FOCUS
+
+FOCUS is a framework for developing FileMaker solutions. It's a set of guidelines, a method of developing and designing, and a starter file that will help get a project started.
+
+h1. Repository Structure
+
+|_. Directory|_. Description|
+|)).Functions|Included in basic FOCUS release (except some subfolders)|
+|Ancillary|Used in deployments occassionally|
+|Unreleased|Candidates for deployment or inclusion in release|
+
+
+h1. Support
+
+For more information, please see the project "wiki":http://focus.beezwax.net.
