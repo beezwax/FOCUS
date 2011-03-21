@@ -1,27 +1,43 @@
 Let ([
-  objectString =
-    Substitute (
-      listOfObjects ;
-      [ "&" ; "or" ] ;
-      [ ¶ ; ", " ]
-    )
-  ];
-  "Error:	Missing Data" & ¶ &
-  "Script:	" & Get ( ScriptName ) & ¶ &
-  "Objects:	" & objectString
+	string =
+		Substitute (
+			listOfObjects ;
+			[ "&" ; "or" ] ;
+			[ ¶ ; ", " ]
+		) ;
+	stringPretty =
+		Substitute (
+			string ;
+			[ "$_" ; "" ] ;
+			[ "_" ; " " ]
+		) ;
+	stringPretty =
+		Substitute (
+			Proper ( stringPretty ) ;
+			[ "Or" ; "or" ]
+		)
+	];
+	"Error:	Missing Data" & ¶ &
+	"Script:	" & Get ( ScriptName ) & ¶ &
+	"Objects: " & If ( prettyVars ; stringPretty ; string )
 )
 
 /* —————————————————————————————— //
 NAME:
-	MessageInvalidVar ( listOfObjects )
+	MessageInvalidVar ( listOfObjects ; prettyVars )
 
 PURPOSE:
 	Returns error message for list of objects that failed previous validation.
 	Used to keep messages uniform and modifiable across solution.
 
 EXAMPLES:
-	MessageInvalidVar ( "$_field & $_object" )
+	Where either $_field or $_object is empty
+	
+	MessageInvalidVar ( "$_field & $_object" ; 0 )
 	= "The following objects are missing required data:¶$_field or $_object"
+	
+	MessageInvalidVar ( "$_field & $_object" ; 1 )
+	= "The following objects are missing required data:¶Field or Object"
 
 HISTORY:
 	Created: 2011-Jan-31 13h40 PST — Donovan A. Chandler
