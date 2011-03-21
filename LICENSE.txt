@@ -1,5 +1,5 @@
 FOCUS 
-@author Beezwaox Datatools, Inc.
+@author Beezwax Datatools, Inc.
 @date 09/2010
 
 Copyright (c) 2010 Beezwax Datatools, Inc.
