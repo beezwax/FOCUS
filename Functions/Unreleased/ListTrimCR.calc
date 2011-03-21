@@ -1,21 +1,21 @@
 Let ( [
-	_delimiter = "::‡::"
+	delimiter = "::‡::"
 	] ;
 	Substitute (
 		Trim (
 			Substitute ( text ;
-				[ " " ; _delimiter ] ;
+				[ " " ; delimiter ] ;
 				[ ¶ ; " " ]
 			)
 		) ;
 		[ " " ; ¶ ] ;
-		[ _delimiter ; " " ]
+		[ delimiter ; " " ]
 	)
 )
 
 /* —————————————————————————————— //
 NAME:
-	TextTrimCR ( text )
+	ListTrimCR ( text )
 	
 PURPOSE:
 	Trims leading and trailing carriage returns from text
