@@ -1,25 +1,8 @@
-// DictKeys( string )
-// Returns a standard list of a dictionary's keys
-// DictKeys(myDict)
-
-Let ( [
-
-	hash_length = DictLength ( string ) ;
-	first_Key = DictGetKeyAt ( string ; 1 ) ;
-
-	divider = ":=" ;
-	dividerLength = Length ( divider ) ;
-	match = ":>" ;
-
-	keyEnd = Position ( string ; match ; 1 ; 1 ) ;
-	remaining_hash = Right ( string ; Length ( string ) - keyEnd - Length ( match ) + 1 ) ;
-
-	keys = If ( hash_length = 0 ; "" ; DictKeys ( remaining_hash ) )
-
-	];
-
-	 first_key & If ( keys = "" ; "" ; ¶ & keys )
-
+#NameAllLoop (
+	encodedString ;
+	1 ;
+	PatternCount ( encodedString ; "<:" ) ;
+	""
 )
 
 /* —————————————————————————————— //
@@ -27,12 +10,11 @@ NAME:
 	#NameAll ( encodedString )
 
 PURPOSE:
-	Returns name of each name-value pair in encoded string.
+	Returns name of each name-value pair at root level of encoded string.
 
 EXAMPLES:
-	#Name ( "<:CITY:=Oakland:><:STATE:=CA:>" ) = "CITY¶STATE"
+	#Name ( "<:STATE:=/</:CITY/:/=OAKLAND/:/>:><:COUNTRY:=USA:>" ) = "STATE¶COUNTRY"
 
 HISTORY:
-	Created: ?
-	Modified: 2011-Mar-02 15h50 PST — Donovan A. Chandler ; Reformatted.
+	Created: 2011-May-02 10h17 PST — Donovan Chandler
 */
