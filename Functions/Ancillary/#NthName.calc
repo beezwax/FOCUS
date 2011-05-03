@@ -1,0 +1,32 @@
+Let ( [
+	openString = "<:" ;
+	closeString = ":=" ;
+	tagStart = Position ( encodedString ; openString ; 1 ; index ) ;
+	start = tagStart + Length ( openString ) ;
+	end = Position ( encodedString ; closeString ; start ; 1 ) ;
+	name = Middle ( encodedString ; start ; end - start )
+	] ;
+
+	Case (
+		tagStart = 0
+		or PatternCount ( encodedString ; openString ) = 0
+		or PatternCount ( encodedString ; closeString ) = 0 ;
+			"" ;
+		name
+	)
+
+)
+
+/* —————————————————————————————— //
+NAME:
+	#NthName ( encodedString ; index )
+
+PURPOSE:
+	Retrieves the name corresponding to the specified index from the encoded string.
+
+EXAMPLES:
+	#NthName ( "<:CITY:=Oakland:><:STATE:=California:>" ; 2 ) = "CITY"
+
+HISTORY:
+	Created: 2011-May-02 09h56 PST — Donovan Chandler using #Name() by Will
+*/
