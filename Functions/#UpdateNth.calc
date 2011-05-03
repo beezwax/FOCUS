@@ -1,19 +1,18 @@
 Let ( [
-  match = "<:" & #Encode ( name ) & ":=" ;
-  pairStart = Position ( encodedString ; match ; 1 ; rep ) ;
-  valueStart = pairStart + Length ( match ) ;
-  endMatch = ":>" ;
-  valueEnd = Position ( encodedString ; endMatch ; valueStart ; 1 ) - 1 ;
-  valueLength = Case ( valueEnd = 0 ; 999999999 ; valueEnd - valueStart + 1 )
-  ] ;
+	match = "<:" & #Encode ( name ) & ":=" ;
+	pairStart = Position ( encodedString ; match ; 1 ; rep ) ;
+	valueStart = pairStart + Length ( match ) ;
+	endMatch = ":>" ;
+	valueEnd = Position ( encodedString ; endMatch ; valueStart ; 1 ) - 1
+	] ;
 
-  Case ( 
-    pairStart = 0 ; encodedString ;
-    
-    Left ( encodedString ; valueStart - 1 ) &
-    #Encode ( newValue ) & 
-    Middle ( encodedString ; valueEnd + 1; Length ( encodedString ) )
-  )
+	Case ( 
+		pairStart = 0 ; encodedString ;
+
+		Left ( encodedString ; valueStart - 1 ) &
+		#Encode ( newValue ) & 
+		Middle ( encodedString ; valueEnd + 1; Length ( encodedString ) )
+	)
 )
 
 /* —————————————————————————————— //
