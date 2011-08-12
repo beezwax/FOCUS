@@ -1,0 +1,27 @@
+Let ( [
+	blockLeft = #Node ( encodedString ; path ) ;
+	blockRight = Middle ( encodedString ; Length ( blockLeft ) + 1 ; Length ( encodedString ) )
+	];
+	Case (
+		IsEmpty ( blockLeft ) ;
+			blockRight & newEncodedString ;
+		blockLeft & newEncodedString & blockRight
+	)
+)
+
+/* —————————————————————————————— //
+NAME:
+	#InjectAfter ( encodedString ; path ; newEncodedString )
+
+PURPOSE:
+	Adds new element after element returned from path.
+
+EXAMPLES:
+	Where $_text = "<:ROOT:=/</:CHILD/:/=text/:/>:>"
+
+	#InjectAfter ( $_text ; "root" ; # ( "SIBLING" ; "text" ) )
+	= "<:ROOT:=/</:CHILD/:/=text/:/>/</:SIBLING/:/=text/:/>:>"
+
+HISTORY:
+	Created: 2011-Jun-08 11h41 PST — Donovan A. Chandler
+*/

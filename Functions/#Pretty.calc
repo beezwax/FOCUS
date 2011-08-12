@@ -1,0 +1,84 @@
+Let ( [
+	charCur = Middle ( text ; rep ; 1 ) ;
+	whitespace = " ¶	" ;
+	$_level = indentLevel ;
+	$_rep = rep ;
+	tab = "	" ;
+	charNew =
+		Case (
+			//-- Opening char : update indent level
+			ListContains ( openChars ; charCur ) ;
+				VarSet ( "_level" ; $_level + 1 ; 0 ) &
+				VarSet ( "_clear_whitespace" ; 1 ; 0 ) &
+				charCur & ¶ ;
+			//-- Closing char
+			ListContains ( closeChars ; charCur ) ;
+				VarSet ( "_level" ; $_level - 1 ; 0 ) &
+				VarSet ( "_clear_whitespace" ; 1 ; 0 ) &
+				¶ & charCur ;
+			//-- Assignment char
+			ListContains ( assignmentChars ; charCur ) ;
+				VarSet ( "_clear_whitespace" ; 1 ; 0 ) &
+				charCur & ¶ ;
+			//-- Clear whitespace
+			$_clear_whitespace and not $_boundary_in ;
+				Case (
+					Position ( whitespace ; charCur ; 1 ; 1 ) > 0 ;
+						VarSet ( "_rep" ; $_rep - 1 ; 0 ) ;
+					StringRepeat ( tab ; $_level ) & charCur &
+					VarSet ( "_clear_whitespace" ; 0 ; 0 )
+				) ;
+			//-- Pass through
+			charCur
+		) ;
+	textNew =
+		Left ( text ; rep - 1 ) &
+		charNew &
+		Middle ( text ; rep + 1 ; repMax ) ;
+	repNew = rep + Length ( charNew )
+	] ;
+	Case (
+		rep < repMax ;
+			TextFormatLoop ( textNew ; openChars ; closeChars ; assignmentChars ; boundaryChars ; 
+				indentLevel ; repNew ; repMax ) ;
+		textNew
+	)
+)
+
+/* —————————————————————————————— //
+NAME:
+	TextFormatLoop ( text ; openChars ; closeChars ; assignmentChars ; indentLevel ; rep ; repMax )
+
+PURPOSE:
+	Formats, or pretty prints, text according to supplied parameters
+
+EXAMPLES:
+	
+
+HISTORY:
+	Created: 2011-Feb-02 16h43 PST — Donovan A. Chandler
+
+NOTES:
+	STILL UNDER DEVELOPMENT!!!
+*/
+
+/*
+TEST TEXT:
+
+<:ROOT:=
+/</:CAT/:/=meow/:/>/</:DOG/:/=//<//:PUG//://=cough//://>//<//:DOBERMAN//://=woof//://>/:/>
+:>
+
+TESTING CODE:
+
+#Pretty (
+	$_text ;
+	"<" ;
+	">" ;
+	":=" ;
+	0 ;
+	1 ;
+	Length ( )
+)
+
+*/

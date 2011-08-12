@@ -1,11 +1,14 @@
 Let ( [
-  open = Position ( string ; openCharacter ; 1 ; 1 ) ;
-  close = Position ( string ; closeCharacter ; open ; 1 )
-  ] ;
+	openStart = Position ( string ; openCharacter ; 1 ; 1 ) ;
+	open = openStart + Length ( openCharacter ) ;
+	close = Position ( string ; closeCharacter ; open ; 1 )
+	] ;
 
-  Case ( open > 0 ; Middle ( string ; open + 1 ; close - open - 1 ) ; "" )
+	Case (
+		openStart > 0 ; Middle ( string ; open ; close - open - 1 )
+	)
 
-  )
+)
 
 /* —————————————————————————————— //
 NAME:
@@ -20,4 +23,5 @@ EXAMPLES:
 HISTORY:
 	Created: 2010-Apr-27 — Donovan Chandler
 	Modified: 2010-Oct-15 18h04 PST — Will M. Baker ; converted from Donovan's function: text.getBetween ( text; openChar; closeChar; occurrence ).
+	Modified: 2011-Aug-10 17h36 PST — Donovan Chandler ; now accounts for length of openCharacter
 */
