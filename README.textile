@@ -9,6 +9,8 @@ h1. Repository Structure
 |Ancillary|Used in deployments occassionally|
 |Unreleased|Candidates for deployment or inclusion in release|
 
+Note, this structure no longer applies to the "#" functions. They have all been moved into the Functions directory to make them more discoverable by guest developers.
+
 
 h1. Support
 
