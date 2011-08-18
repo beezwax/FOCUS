@@ -1,0 +1,90 @@
+Let ( [
+  searchNameString = #Encode ( # ( searchName ; searchValue ) ) ;
+  startNameSearchString = Position ( encodedString ; searchNameString ; 1 ; 1 ) ;
+  endNameSearchString = Position ( encodedString ; "/:/>" ; startNameSearchString ; 1 ) ;
+  endName = endNameSearchString + 4 ;
+  startEnc = Position ( encodedString ; "<:" & enclosingName & ":=" ; startNameSearchString ; -1 ) ;
+  endEnc = Position ( encodedString ; ":>" ; startEnc ; 1 ) ;
+  enclosure = Middle ( encodedString ; startEnc ; endEnc - startEnc + 2 ) ;
+  searchParamString = "/</:" & searchParam ; 
+  startParamSearchString = Position ( enclosure ; searchParamString ; 1 ; 1 ) ;
+  startParam = ( startEnc + startParamSearchString ) - 1 ;
+  endParam = Position ( encodedString ; "/:/>" ; startParam ; 1 ) ;
+  lengthParam = ( endParam - startParam ) + 4 
+ ] ;
+
+  Case ( 
+    startNameSearchString = 0 ; // create new enclosure, name pair, and parameter
+	encodedString & 
+	# ( enclosingName ;  
+		# ( searchName ; searchValue )  & 
+		# ( searchParam ; paramValue )
+	) ;   
+    startParamSearchString = 0 ;  // add parameter to existing enclose, after searchName value pair
+	Replace ( encodedString ; endName ; 0 ; #Encode ( # ( searchParam ; paramValue ) ) ) ; 
+    Replace ( encodedString ; startParam ; lengthParam ; #Encode ( # ( searchParam ; paramValue ) ) )  // replace existing parameter value
+  )
+
+)
+
+/* —————————————————————————————— //
+NAME:
+	#ArrayUpdate ( encodedString ; enclosingName ; searchName ; searchValue ; searchParam ; paramValue )
+
+PURPOSE:
+	Interrogates an encoded list, searching for a name value pair (searchName and searchValue) and updating the value paired with paramName with a new value (paramValue), all within an encoded string. Parameter and/or name/value pair are created as needed.
+
+EXAMPLES:
+
+------------------------------------------------------------------
+
+	where $_list =
+		# ( "CITY" ;
+			# ( "NAME" ; "San Francisco" ) &
+			# ( "POPULATION" ; 808976 )
+			) &
+		# ( "CITY" ;
+			# ( "NAME" ; "Oakland" ) &
+			# ( "POPULATION" ; 395274 )
+			)
+
+	#Array ( $_list ; "CITY" ; "NAME" ; "Oakland" ; "Population" ; 450000  ) = 
+		# ( "CITY" ;
+			# ( "NAME" ; "San Francisco" ) &
+			# ( "POPULATION" ; 808976 )
+			) &
+		# ( "CITY" ;
+			# ( "NAME" ; "Oakland" ) &
+			# ( "POPULATION" ; 450000 )
+			)
+------------------------------------------------------------------
+	where $_list =
+		# ( "CITY" ;
+			# ( "NAME" ; "San Francisco" ) &
+			# ( "POPULATION" ; 808976 )
+			) &
+		# ( "CITY" ;
+			# ( "NAME" ; "Oakland" ) &
+			# ( "POPULATION" ; 395274 )
+			)
+
+	#Array ( $_list ; "CITY" ; "NAME" ; "Daly City" ; "Population" ; 104000  ) = 
+		# ( "CITY" ;
+			# ( "NAME" ; "San Francisco" ) &
+			# ( "POPULATION" ; 808976 )
+			) &
+		# ( "CITY" ;
+			# ( "NAME" ; "Oakland" ) &
+			# ( "POPULATION" ; 450000 )
+			)
+		# ( "CITY" ;
+			# ( "NAME" ; "Daly City" ) &
+			# ( "POPULATION" ; 104000 )
+			)
+
+HISTORY:
+	Created: 2010-Jan-29 17h00 PST — Will M. Baker, #Array
+	Modified: 2010-Nov-29 11h06 PST — Will M. Baker ; changed from recursive function to one using Position.
+	Modified: 2011-Mar-28 05h00 PST — Lon Cook ; modified #Array function to create #ArrayUpdate.
+
+*/
