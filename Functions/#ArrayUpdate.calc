@@ -1,29 +1,34 @@
 Let ( [
-  searchNameString = #Encode ( # ( searchName ; searchValue ) ) ;
-  startNameSearchString = Position ( encodedString ; searchNameString ; 1 ; 1 ) ;
-  endNameSearchString = Position ( encodedString ; "/:/>" ; startNameSearchString ; 1 ) ;
-  endName = endNameSearchString + 4 ;
-  startEnc = Position ( encodedString ; "<:" & enclosingName & ":=" ; startNameSearchString ; -1 ) ;
-  endEnc = Position ( encodedString ; ":>" ; startEnc ; 1 ) ;
-  enclosure = Middle ( encodedString ; startEnc ; endEnc - startEnc + 2 ) ;
-  searchParamString = "/</:" & searchParam ; 
-  startParamSearchString = Position ( enclosure ; searchParamString ; 1 ; 1 ) ;
-  startParam = ( startEnc + startParamSearchString ) - 1 ;
-  endParam = Position ( encodedString ; "/:/>" ; startParam ; 1 ) ;
-  lengthParam = ( endParam - startParam ) + 4 
- ] ;
+	searchNameString = #Encode ( # ( searchName ; searchValue ) ) ;
+	startNameSearchString = Position ( encodedString ; searchNameString ; 1 ; 1 ) ;
+	endNameSearchString = Position ( encodedString ; "/:/>" ; startNameSearchString ; 1 ) ;
+	endName = endNameSearchString + 4 ;
+	startEnc = Position ( encodedString ; "<:" & enclosingName & ":=" ; startNameSearchString ; -1 ) ;
+	endEnc = Position ( encodedString ; ":>" ; startEnc ; 1 ) ;
+	enclosure = Middle ( encodedString ; startEnc ; endEnc - startEnc + 2 ) ;
+	searchParamString = "/</:" & searchParam ;
+	startParamSearchString = Position ( enclosure ; searchParamString ; 1 ; 1 ) ;
+	startParam = ( startEnc + startParamSearchString ) - 1 ;
+	endParam = Position ( encodedString ; "/:/>" ; startParam ; 1 ) ;
+	lengthParam = ( endParam - startParam ) + 4
+	] ;
 
-  Case ( 
-    startNameSearchString = 0 ; // create new enclosure, name pair, and parameter
-	encodedString & 
-	# ( enclosingName ;  
-		# ( searchName ; searchValue )  & 
-		# ( searchParam ; paramValue )
-	) ;   
-    startParamSearchString = 0 ;  // add parameter to existing enclose, after searchName value pair
-	Replace ( encodedString ; endName ; 0 ; #Encode ( # ( searchParam ; paramValue ) ) ) ; 
-    Replace ( encodedString ; startParam ; lengthParam ; #Encode ( # ( searchParam ; paramValue ) ) )  // replace existing parameter value
-  )
+	Case (
+		// create new enclosure, name pair, and parameter
+		startNameSearchString = 0 ;
+			encodedString &
+			# ( enclosingName ;
+				# ( searchName ; searchValue )  &
+				# ( searchParam ; paramValue )
+			) ;
+
+		// add parameter to existing enclose, after searchName value pair
+		startParamSearchString = 0 ;
+			Replace ( encodedString ; endName ; 0 ; #Encode ( # ( searchParam ; paramValue ) ) ) ;
+
+		// replace existing parameter value
+		Replace ( encodedString ; startParam ; lengthParam ; #Encode ( # ( searchParam ; paramValue ) ) )
+	)
 
 )
 
@@ -48,7 +53,7 @@ EXAMPLES:
 			# ( "POPULATION" ; 395274 )
 			)
 
-	#Array ( $_list ; "CITY" ; "NAME" ; "Oakland" ; "Population" ; 450000  ) = 
+	#Array ( $_list ; "CITY" ; "NAME" ; "Oakland" ; "Population" ; 450000  ) =
 		# ( "CITY" ;
 			# ( "NAME" ; "San Francisco" ) &
 			# ( "POPULATION" ; 808976 )
@@ -68,7 +73,7 @@ EXAMPLES:
 			# ( "POPULATION" ; 395274 )
 			)
 
-	#Array ( $_list ; "CITY" ; "NAME" ; "Daly City" ; "Population" ; 104000  ) = 
+	#Array ( $_list ; "CITY" ; "NAME" ; "Daly City" ; "Population" ; 104000  ) =
 		# ( "CITY" ;
 			# ( "NAME" ; "San Francisco" ) &
 			# ( "POPULATION" ; 808976 )
@@ -84,7 +89,8 @@ EXAMPLES:
 
 HISTORY:
 	Created: 2010-Jan-29 17h00 PST — Will M. Baker, #Array
-	Modified: 2010-Nov-29 11h06 PST — Will M. Baker ; changed from recursive function to one using Position.
-	Modified: 2011-Mar-28 05h00 PST — Lon Cook ; modified #Array function to create #ArrayUpdate.
+	Modified: 2010-Nov-29 11h06 PST — Will M. Baker ; changed from recursive function to one using Position.
+	Modified: 2011-Mar-28 05h00 PST — Lon Cook ; modified #Array function to create #ArrayUpdate.
+	Modified: 2011-Aug-17 20h41 PST — Donovan Chandler ; modified indentation
 
 */
