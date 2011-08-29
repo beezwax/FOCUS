@@ -5,7 +5,7 @@ Let ( [
 	] ;
 
 	Case (
-		openStart > 0 ; Middle ( string ; open ; close - open - 1 )
+		openStart > 0 ; Middle ( string ; open ; close - open )
 	)
 
 )
