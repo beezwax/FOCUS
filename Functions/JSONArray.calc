@@ -1,0 +1,14 @@
+"[" & JSONArrayLoop ( listOfValues ; ValueCount ( listOfValues ) ; "" ) & "]"
+
+/* __________________________________________________
+
+NAME:	JSONArray ( listOfValues )
+PURPOSE:	Converts return-delimited list into JSON array.
+		Escapes each value, unless it appears to be a JSON object or array.
+EXAMPLES:
+	#Array ( "Oakland¶[\"a\",\"b\"]" )	= "[\"Oakland\",[\"a\",\"b\"]]"
+	#Array ( "" )			= "[]"
+HISTORY:
+	Created:	2012-05-29 12:18 PT - Donovan Chandler
+	Modified:	
+*/

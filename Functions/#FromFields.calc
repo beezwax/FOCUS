@@ -1,9 +1,9 @@
 ListCustom ( 1 ; ValueCount ( listOfFieldNames ) ;
-  "Let([ nameList = " & Quote( listOfFieldNames ) & "; " &
-  "nameFull = GetValue( nameList; [n] ); " &
-  "name = FieldNameShort( nameFull ); " &
-  "value = GetField( nameFull ) " &
-  "]; #( name ; If( value ≠ \"?\"; value ) ) )"
+	"Let([ nameList = " & Quote( listOfFieldNames ) & "; " &
+	"nameFull = GetValue( nameList; [n] ); " &
+	"name = FieldNameShort( nameFull ); " &
+	"value = GetField( nameFull ) " &
+	"]; #( name ; If( value ≠ \"?\"; value ) ) )"
 )
 
 /* —————————————————————————————— //
@@ -14,7 +14,7 @@ PURPOSE:
 	Returns hash, each pair named after field with value containing field contents
 
 EXAMPLES:
-	HashFromFields ( "CONTACT::NAME¶CONTACT::PHONE" )
+	#FromFields ( "CONTACT::NAME¶CONTACT::PHONE" )
 	= "<:NAME:=Fred:><:PHONE:=971.555.1234:>"
 
 DEPENDENCIES:

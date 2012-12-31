@@ -1,0 +1,37 @@
+Let ( [
+	pathDelimeter = Position ( path ; "/" ; 1 ; 1 )
+	; fullName = If ( pathDelimeter > 0 ; Left ( path ; pathDelimeter - 1 ) ; path )
+	; rep = TextBetweenNth ( fullName ; "[" ; "]" ; 1 )
+	; name =
+		If (
+			IsEmpty ( rep ) ; fullName
+			; Left ( fullName ; Position ( fullName ; "[" ; 1 ; 1 ) - 1 )
+		)
+	; rep = If ( IsEmpty ( rep ) ; 1 ; rep )
+	; name =
+		If (
+			not IsEmpty ( name ) ; name
+			; TextBetweenNth ( encodedString ; "<:" ; ":=" ; rep )
+		)
+	; newPath = If ( pathDelimeter > 0 ; Right ( path ; Length ( path ) - pathDelimeter ) ; "" )
+	] ;
+	Case ( 
+		IsEmpty ( newPath )
+			; Position ( encodedString ; "<:" & name & ":=" ; 1 ; rep )
+		; #Node ( #NthValue ( encodedString ; name ; rep ) ; newPath )
+	)
+)
+
+/* —————————————————————————————— //
+NAME:
+	#Exists ( encodedString ; path )
+
+PURPOSE:
+	Returns True if node at specified path exists (even if it's value is empty).
+
+EXAMPLES:
+	See #Node() documentation
+
+HISTORY:
+	Created: 2012-Feb-15 08h03 PST — Donovan Chandler using #Node() by Will Baker
+*/

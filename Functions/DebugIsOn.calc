@@ -1,0 +1,10 @@
+GetAsBoolean ( $$_debug )
+
+/* __________________________________________________
+
+NAME:	DebugIsOn ( )
+PURPOSE:	Returns 1 (True) if solution is in debugging mode. Debug mode may prevent destructive actions, etc.
+HISTORY:
+	Created:	2012-03-13 20:55 PST - Donovan Chandler
+	Modified:	
+*/

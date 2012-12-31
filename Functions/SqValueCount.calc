@@ -1,0 +1,10 @@
+If ( IsEmpty ( sqlArray ) ; 0 ; PatternCount ( sqlArray ; SqRowSeparator ) + 1 )
+
+/* __________________________________________________
+
+NAME:	SqValueCount ( array )
+PURPOSE:	Returns number of values in the SQL Array.
+HISTORY:
+	Created:	2012-10-24 13:07 PST - Will M. Baker
+	Modified:	
+*/

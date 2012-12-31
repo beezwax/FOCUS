@@ -1,0 +1,19 @@
+Let ( [
+	start = Position ( sqlArray ; SqRowSeparator ; 1 ; valueNumber - 1 ) ;
+	start = If ( start ; start + Length ( SqRowSeparator ) ; 1 ) ;
+	end = Position ( sqlArray ; SqRowSeparator ; start ; 1 ) ;
+	end = If ( end ; end - 1 ; Length ( sqlArray ) )
+	] ;
+	Middle ( sqlArray ; start ; end - start + 1 )
+)
+
+/* __________________________________________________
+
+NAME:	SqGetValue ( sqlArray )
+PURPOSE:	Returns a specific value of the SQL array.
+EXAMPE:
+	SqGetValue ( "Oakland††CA‡‡SanFranciso††CA" ; 2 ) = "SanFranciso††CA"
+HISTORY:
+	Created:	2012-10-24 13:07 PST - Will M. Baker
+	Modified:	
+*/

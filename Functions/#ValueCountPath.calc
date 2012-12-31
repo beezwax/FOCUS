@@ -1,21 +1,21 @@
 Let ([
-  pathList = Substitute ( path ; "/" ; ¶ ) ;
-  nodeCount = ValueCount ( pathList ) ;
-  node = GetValue ( pathList ; nodeCount ) ;
-  nodeSearch = "<:" & node & ":=" ;
-  encodeLevel = nodeCount - 1 ;
-  nodeEncodedList =
-    ListCustom (
-      1 ;
-      encodeLevel ;
-      "Let ([ " &
-      "$string = If ( [n] > 1 ; $string ; " & Quote( nodeSearch ) & " ) ; " &
-      "$string = #Encode ( $string ) " &
-      "]; $string )"
-    ) ;
-  nodeEncoded = GetValue ( nodeEncodedList ; encodeLevel )
-  ] ;
-  PatternCount ( encodedString ; nodeEncoded )
+	pathList = Substitute ( path ; "/" ; ¶ ) ;
+	nodeCount = ValueCount ( pathList ) ;
+	node = GetValue ( pathList ; nodeCount ) ;
+	nodeSearch = "<:" & node & ":=" ;
+	encodeLevel = nodeCount - 1 ;
+	nodeEncodedList =
+		ListCustom (
+			1 ;
+			encodeLevel ;
+			"Let ([ " &
+			"$string = If ( [n] > 1 ; $string ; " & Quote ( nodeSearch ) & " ) ; " &
+			"$string = #Encode ( $string ) " &
+			"]; $string )"
+		) ;
+	nodeEncoded = GetValue ( nodeEncodedList ; encodeLevel )
+	] ;
+	PatternCount ( encodedString ; nodeEncoded )
 )
   
 /* —————————————————————————————— //

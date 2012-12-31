@@ -1,15 +1,10 @@
-Left ( fullyQualifiedFieldName ; Position ( fullyQualifiedFieldName ; "::" ; 1 ; 1 ) - 1 )
+Left ( tableNamefieldName ; Position ( tableNamefieldName ; "::" ; 1 ; 1 ) - 1 )
 
-/* —————————————————————————————— //
-NAME:
-	FieldTableOccurrence ( fullyQualifiedFieldName )
+/* __________________________________________________
 
-PURPOSE:
-	Returns just the table name from a fully qualified field name.
-
-EXAMPLES:
-	TableName ( "FOCUS::ID" ) = "FOCUS"
-
-HISTORY:
-	Created: 2010-Jan-29 17h00 PST — Will M. Baker
+NAME:	FieldTableOccurrence ( tableNamefieldName )
+PURPOSE:	Extract the table occurrence component from a fully qualified field name.
+IN:		tableNamefieldName (in TABLE::FIELD format).
+HISTORY:	Created:	2012-03-09 18:29 CST - Will M. Baker
+		Modified:	
 */

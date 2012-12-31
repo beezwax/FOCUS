@@ -1,0 +1,40 @@
+Case (
+	rep > repMax ; "" ;
+	Let ( [
+		value = #NthValue ( encodedString ; name ; rep )
+		] ;
+		value &
+		Case ( Left ( value ; 2 ) ≠ "<:" and rep < repMax ; ¶ ; "" ) & // if the value is not encoded, separate with a carriage return.
+		#NodeColumnLoop ( encodedString ; name ; repMax ; rep + 1 )
+	) // end Let
+) // end outer Case
+
+/* __________________________________________________
+
+NAME:	#NodeColumnLoop ( encodedString ; name ; repMax ; rep )
+PURPOSE:	Returns n values (from n name pairs) from the encoded string.
+EXAMPLES:
+	Where $_encoded_string is the following:
+
+	# ( "LEVEL" ;
+		# ( "COLOR" ; "Red" ) &
+		# ( "COLOR" ; "Blue" )
+		) &
+	# ( "LEVEL" ;
+		# ( "COLOR" ; "Yellow" ) &
+		# ( "COLOR" ; "Green" )
+		)
+
+	#NodeColumnLoop ( $_encoded_string ; "LEVEL" ; 2 ; 1 ) = "<:COLOR:=Red:><:COLOR:=Blue:><:COLOR:=Yellow:><:COLOR:=Green:>"
+
+	Where $_encoded_string is the following:
+
+	# ( "COLOR" ; "Red" ) &
+	# ( "COLOR" ; "Blue" ) &
+	# ( "COLOR" ; "Yellow" ) &
+	# ( "COLOR" ; "Green" )
+
+	#NodeColumnLoop ( $_encoded_string ; "COLOR" ; 4 ; 1 ) = "Red¶Blue¶Yellow¶Green"
+HISTORY:	Created:	2012-03-12 16:04 CST - Will M. Baker
+		Modified:	
+*/

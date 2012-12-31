@@ -1,32 +1,37 @@
 Let ( [
-  searchString = #Encode ( # ( searchName ; searchValue ) ) ;
-  startSearchString = Position ( encodedString ; searchString ; 1 ; 1 ) ;
-  start = Position ( encodedString ; "<:" & enclosingName & ":=" ; startSearchString ; -1 ) ;
-  end = Position ( encodedString ; ":>" ; start ; 1 ) ;
-  enclosure = Middle ( encodedString ; start ; end - start + 1 ) 
-  ] ;
+	searchString = #Encode ( # ( searchName ; searchValue ) ) ;
+	startSearchString = Position ( encodedString ; searchString ; 1 ; 1 ) ;
+	start = Position ( encodedString ; "<:" & enclosingName & ":=" ; startSearchString ; -1 ) ;
+	end = Position ( encodedString ; ":>" ; start ; 1 ) ;
+	enclosure = Middle ( encodedString ; start ; end - start + 1 ) 
+	] ;
 
-  Case (
-    startSearchString = 0 or start = 0 ; "" ; 
-    #Value ( #Value ( enclosure ; enclosingName ) ; returnName )
-    )
+	Case (
+		startSearchString = 0 or start = 0 ; "" ; 
+		#Value ( #Value ( enclosure ; enclosingName ) ; returnName )
+	)
 
-  )
+)
 
 /* —————————————————————————————— //
 NAME:
-#Array ( encodedString ; enclosingName ; searchName ; searchValue ; returnName )
+	#Array ( encodedString ; enclosingName ; searchName ; searchValue ; returnName )
 
 PURPOSE:
-Interrogates an encoded list, searching for a name value pair (searchName and searchValue) and returning the value paired with returnName, all within an encoded string.
+	Interrogates an encoded list, searching for a name value pair (searchName and searchValue) and returning the value paired with returnName, all within an encoded string.
 
 EXAMPLES:
-where $_list = # ( "CITY" ; # ( "NAME" ; "San Francisco" ) & # ( "POPULATION" ; 808976 )
-) & # ( "CITY" ; # ( "NAME" ; "Oakland" ) & # ( "POPULATION" ; 395274 )
-)
+	where $_list =
+		# ( "CITY" ;
+			# ( "NAME" ; "San Francisco" ) & # ( "POPULATION" ; 808976 )
+		) &
+		# ( "CITY" ;
+			# ( "NAME" ; "Oakland" ) & # ( "POPULATION" ; 395274 )
+		)
 
-#Array ( $_list ; "CITY" ; "NAME" ; "Oakland" ; "Population" ) = 395274
+	#Array ( $_list ; "CITY" ; "NAME" ; "Oakland" ; "Population" ) = 395274
+	
 HISTORY:
-Created: 2010-Jan-29 17h00 PST — Will M. Baker
-Modified: 2010-Nov-29 11h06 PST — Will M. Baker ; changed from recursive function to one using Position.
+	Created: 2010-Jan-29 17h00 PST — Will M. Baker
+	Modified: 2010-Nov-29 11h06 PST — Will M. Baker ; changed from recursive function to one using Position.
 */

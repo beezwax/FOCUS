@@ -1,0 +1,26 @@
+Let ( [
+	value = GetValue ( valuesToRemove ; 1 ) ;
+	valuesRemaining = MiddleValues ( valuesToRemove ; 2 ; 999 ) ;
+	listEncoded = Substitute ( ¶ & lst & ¶ ; ¶ ; "¶|" ) ;
+	listFiltered =
+		Substitute ( listEncoded ;
+			[ "|" & value & ¶ ; "" ] ;
+			[ "¶|" ; ¶ ]
+		) ;
+	listNew = Middle ( listFiltered ; 2 ; Length ( listFiltered ) - 2 )
+	];
+	Case (
+		not IsEmpty ( valuesRemaining ) ; ListRemoveValues ( listNew ; valuesRemaining ) ;
+		listNew
+	)
+	
+)
+
+/* __________________________________________________
+
+NAME:	ListRemoveValues ( lst ; valuesToRemove )
+PURPOSE:	Removes all instances of qualifying values from the list.
+		1. Has an imposed limit of 999 values to remove.
+HISTORY:	Created:	2011-04-11 13:59 PST - Donovan Chandler
+		Modified:	2012-03-12 12:17 PST - Will M. Baker
+*/

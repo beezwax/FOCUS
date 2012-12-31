@@ -1,17 +1,26 @@
 Let ( [
-  pathDelimeter = Position ( path ; "/" ; 1 ; 1 ) ;
-  fullName = Case ( pathDelimeter > 0 ; Left ( path ; pathDelimeter - 1 ) ; path ) ;
-  rep = TextBetween ( fullName ; "[" ; "]" ) ;
-  name = Case ( IsEmpty ( rep ) ; fullName ; Left ( fullName ; Position ( fullName ; "[" ; 1 ; 1 ) - 1 ) ) ;
-  rep = Case ( IsEmpty ( rep ) ; 1 ; rep ) ;
-  newPath = Case ( pathDelimeter > 0 ; Right ( path ; Length ( path ) - pathDelimeter ) ; "" ) ;
-  value = #NthValue ( encodedString ; name ; rep )
-  ] ;
+	pathDelimeter = Position ( path ; "/" ; 1 ; 1 )
+	; fullName = If ( pathDelimeter > 0 ; Left ( path ; pathDelimeter - 1 ) ; path )
+	; rep = TextBetween ( fullName ; "[" ; "]" ; 1 )
+	; name =
+		If (
+			IsEmpty ( rep ) ; fullName
+			; Left ( fullName ; Position ( fullName ; "[" ; 1 ; 1 ) - 1 )
+		)
+	; rep = If ( IsEmpty ( rep ) ; 1 ; rep )
+	; name =
+		If (
+			not IsEmpty ( name ) ; name
+			; TextBetween ( encodedString ; "<:" ; ":=" ; rep )
+		)
+	; newPath = If ( pathDelimeter > 0 ; Right ( path ; Length ( path ) - pathDelimeter ) ; "" )
+	; value = #NthValue ( encodedString ; name ; rep )
+	] ;
 
-  Case ( 
-    IsEmpty ( newPath ) ; value ;
-    #Node ( value ; newPath )
-  )
+	Case ( 
+		IsEmpty ( newPath ) ; value
+		; #Node ( value ; newPath )
+	)
 
 )
 
@@ -28,21 +37,20 @@ EXAMPLES:
 	# ( "LEVEL" ;
 		# ( "COLOR" ; "Red" ) &
 		# ( "COLOR" ; "Blue" )
-		) &
+	) &
 	# ( "LEVEL" ;
 		# ( "COLOR" ; "Yellow" ) &
 		# ( "COLOR" ; "Green" )
-		)
+	)
 
+	#Node ( $_endoded_string ; "Level" ) = "<:COLOR:=Red:><:COLOR:=Blue:>"
 	#Node ( $_encoded_string ; "Level/Color" ) = "Red"
-	#Node ( $_encoded_string ; "Level[1]/Color" ) = "Red"
-	#Node ( $_encoded_string ; "Level/Color[1]" ) = "Red"
-	#Node ( $_encoded_string ; "Level[1]/Color[1]" ) = "Red"
 	#Node ( $_encoded_string ; "Level[2]/Color" ) = "Yellow"
 	#Node ( $_encoded_string ; "Level/Color[2]" ) = "Blue"
 	#Node ( $_encoded_string ; "Level[2]/Color[2]" ) = "Green"
-	#Node ( $_endoded_string ; "Level" ) = "<:COLOR:=Red:><:COLOR:=Blue:>"
+	#Node ( $_encoded_string ; "[2]/Color[2]" ) = "Green"
 
 HISTORY:
 	Created: 2010-Oct-15 11h48 PST — Will M. Baker. Idea by Donovan Chandler.
+	Modified: 2012-Feb-11 13h38 PST — Donovan Chandler. Node name now optional when index given.
 */

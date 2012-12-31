@@ -1,0 +1,9 @@
+Position ( Get ( ApplicationVersion ) ; "Go" ; 1 ; 1 ) > 0
+
+/* __________________________________________________
+
+NAME:	IsFMGo ( )
+PURPOSE:	Returns 1 (True) if user is using FileMakerGo.
+HISTORY:
+	Created:	2012-03-13 21:26 PST - Donovan Chandler
+*/

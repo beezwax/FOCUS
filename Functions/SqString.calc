@@ -1,0 +1,15 @@
+"'" & Substitute ( text ; "'" ; "''" ) & "'"
+
+/* __________________________________________________
+
+NAME:	SqString ( text )
+PURPOSE:	Quotes string for use in SQL
+EXAMPLES:
+	SqString ( "contact" ) = 'contact'
+NOTES:
+	Use the optional arguments parameter in ExecuteSql( )
+	if you want to be sure of proper handling of strings.
+HISTORY:
+	Created:	2012-03-28 11:11 PT - Donovan Chandler
+	Modified:	2012-12-13 16:09 PT - Donovan Chandler : Escapes apostrophes
+*/

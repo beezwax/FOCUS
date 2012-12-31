@@ -1,16 +1,17 @@
-Substitute ( Test_Hash_Inject::Param1 ;
+Substitute ( encodedString
 	
 	//-- Whitespace between siblings
-	[ ">////<" ; ">¶			////<" ] ;
-	[ ">///<" ; ">¶			///<" ] ;
-	[ ">//<" ; ">¶		//<" ] ;
-	[ ">/<" ; ">¶	/<" ] ;
+	; [ ">////<" ; ">¶			////<" ]
+	; [ ">///<" ; ">¶			///<" ]
+	; [ ">//<" ; ">¶		//<" ]
+	; [ ">/<" ; ">¶	/<" ]
+	; [ "><" ; ">¶<" ]
 	
 	//-- Whitespace before children
-	[ "=////<" ; "=¶		////<" ] ;
-	[ "=///<" ; "=¶		///<" ] ;
-	[ "=//<" ; "=¶		//<" ] ;
-	[ "=/<" ; "=¶	/<" ]
+	; [ "=////<" ; "=¶		////<" ]
+	; [ "=///<" ; "=¶		///<" ]
+	; [ "=//<" ; "=¶		//<" ]
+	; [ "=/<" ; "=¶	/<" ]
 
 )
 
@@ -19,7 +20,8 @@ NAME:
 	#Pretty ( encodedString )
 
 PURPOSE:
-	Pretty prints hash.
+	Rough pretty-print. Adds indentation for FileMaker dictionary down to 5th level.
+	Assumes dictionary is created using #() custom function suite.
 
 EXAMPLES:
 	#Pretty ( "<:ANIMALS:=/</:CAT/:/=meow/:/>/</:DOG/:/=//<//:PUG//://=cough//://>//<//:DOBERMAN//://=woof//://>/:/>
@@ -33,7 +35,7 @@ EXAMPLES:
 	:>
 
 NOTES:
-	Assumes that no whitespace exists between elements.
+	Assumes there is no whitespace between dictionary elements.
 
 HISTORY:
 	Created: 2011-Jun-08 12h19 PST — Donovan Chandler

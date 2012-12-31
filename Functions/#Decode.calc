@@ -1,20 +1,15 @@
 Substitute ( encodedString ;
-  [  "/:"; ":" ] ; 
-  [ "/="; "=" ] ; 
-  [ "/>"; ">" ] ; 
-  [ "/<" ; "<" ]
+	[  "/:"; ":" ] ; 
+	[ "/="; "=" ] ; 
+	[ "/>"; ">" ] ; 
+	[ "/<" ; "<" ]
 )
 
-/* —————————————————————————————— //
-NAME:
-	#Decode ( encodedString )
+/* __________________________________________________
 
-PURPOSE:
-	Removes encoding used for #() function
-
-EXAMPLES:
-	
-
-HISTORY:
-	Created: 2010-Aug-31 18h04 PST — Donovan A. Chandler
+NAME:	#Decode ( encodedString )
+PURPOSE:	Restore escaped-out characters from an encoded string.
+IN:		string (any text to be encoded)
+HISTORY:	Created:	2012-03-09 19:02 CST - Will M. Baker
+		Modified:	
 */

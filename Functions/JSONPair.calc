@@ -1,0 +1,14 @@
+JSONEncode ( name ) & ":" & JSONEncodeStringOnly ( value )
+
+/* __________________________________________________
+
+NAME:	JSONPair ( name ; value )
+PURPOSE:	Creates name-value pair in JSON format.
+EXAMPLES:
+	# ( "name" ; "Oakland" )			= "\"name\":\"Oakland\""
+	# ( "array" ; "  [\"a\",\"b\"]")			= "\"array\":[\"a\",\"b\"]"
+	# ( "object" ; "{\"city\":\"Oakland\"}")	= "\"object\":{\"city\":\"Oakland\"}"
+HISTORY:
+	Created:	2012-02-13 13:00 PT - Will M. Baker
+	Modified:	2012-05-29 12:59 PT - Donovan Chandler : Now preserves pre-encoded values.
+*/

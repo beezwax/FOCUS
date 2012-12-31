@@ -1,0 +1,10 @@
+20
+
+/* __________________________________________________
+
+NAME:	ErrorLogged ( )
+PURPOSE:	Returns error code used to indicated that error has been logged by system and no longer needs to be addressed, except maybe an error message to the user (which will be passed back up the tree to the calling script.
+HISTORY:
+	Created:	2012-03-30 11:28 PST - Donovan Chandler
+	Modified:	
+*/

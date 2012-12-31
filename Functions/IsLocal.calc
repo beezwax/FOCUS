@@ -1,0 +1,14 @@
+not IsHosted
+
+/* —————————————————————————————— //
+NAME:
+	IsLocal ( )
+
+PURPOSE:
+	Returns TRUE if file has been opened locally, otherwise FALSE.
+
+EXAMPLES:
+
+HISTORY:
+	Created: 2010-Oct-15 16h19 PST — Will M. Baker
+*/

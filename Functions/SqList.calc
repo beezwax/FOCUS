@@ -1,0 +1,15 @@
+Case (
+	IsEmpty ( listToDelimit ) ; "" ;
+	"(" & SqListLoop ( listToDelimit ) & ")"
+)
+
+/* __________________________________________________
+
+NAME:	SqList ( listToDelimit )
+PURPOSE:	Converts return-delimited list into comma-delimited list of quoted strings.
+		Useful for IN clauses in SQL statements.
+EXAMPLES:
+	SqList ( "dog¶cat\¶mouse" ) = "('dog','cat¶mouse')"
+HISTORY:
+	Created:	2011-10-26 16:23 PT - Donovan A. Chandler
+*/

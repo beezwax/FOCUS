@@ -1,0 +1,9 @@
+#NodeArray ( TableArray ; "TABLE" ; "TABLE" ; table ; "INDEX" )
+
+/* __________________________________________________
+
+NAME:	TableIndex ( table )
+PURPOSE:	Return the index number corresponding to a table name.
+HISTORY:	Created:	2012-03-12 16:19 CST - Will M. Baker
+		Modified:	
+*/

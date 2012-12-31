@@ -1,0 +1,47 @@
+/* FUNCTION INCOMPLETE - Not tested */
+
+Let ( [
+	pathDelimeter = Position ( path ; "/" ; 1 ; 1 ) ;
+	fullName = Case ( pathDelimeter ; Left ( path ; pathDelimeter - 1 ) ; path ) ;
+	rep = TextBetween ( fullName ; "[" ; "]" ; 1 ) ;
+	name =
+		Case (
+			IsEmpty ( rep ) ; fullName ;
+			Left ( fullName ; Position ( fullName ; "[" ; 1 ; 1 ) - 1 )
+		) ;
+	rep = Max ( rep ; 0 ) ;
+	newPath = If ( pathDelimeter > 0 ; Right ( path ; Length ( path ) - pathDelimeter ) ; "" ) ;
+	parent = #NthValue ( encodedString ; name ; rep ) ;
+	value = #NthName ( parent ; rep )
+	] ;
+
+	Case (
+		IsEmpty ( newPath ) or rep > 0 ; value ;
+		#Node ( value ; newPath )
+	)
+
+)
+
+
+/* __________________________________________________
+
+NAME:	#NodeName ( encodedString ; path )
+PURPOSE:	Returns name of first child
+EXAMPLES:
+	Where $_encoded_string is the following:
+
+	# ( "TABLE" ;
+		# ( "NAME" ; "Contact" ) &
+		# ( "RECORD" ; 100 )
+	) &
+	# ( "TABLE" ;
+		# ( "NAME" ; "Company" ) &
+		# ( "RECORD" ; 5 )
+	)
+
+	#NodeName ( $_encoded_string ; "Table" ) = "Contact"
+
+HISTORY:
+	Created:	2012-03-12 16:11 CST - Will M. Baker
+	Modified:
+*/

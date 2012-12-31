@@ -1,0 +1,18 @@
+MetricsAdd (
+	Get ( ScriptName ) ;
+	"script" ;
+	action ;
+	note
+)
+
+/* __________________________________________________
+
+NAME:	MetricsAddScript ( action ; note )
+PURPOSE:	Appends new entry to metrics log stack.  Used for monitoring script performance.
+EXAMPLES:
+	MetricsAddScript ( "debug" ; "Finished sort operation" )
+NOTES:
+	Valid action values: {start, end, debug, error}
+HISTORY:
+	Created:	2011-04-26 14:58 PT - Donovan Chandler
+*/

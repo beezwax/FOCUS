@@ -1,0 +1,16 @@
+"{" & JSONObjectLoop ( listOfPairs ; ValueCount ( listOfPairs ) ; "" ) & "}"
+
+/* __________________________________________________
+
+NAME:	#Object ( listOfPairs )
+PURPOSE:	Converts return-delimited list of encoded pairs into JSON object.
+		Assumes each value is already encoded propertly.
+EXAMPLES:
+	Where $_text = "\"city\":\"Oakland\"¶\"\"tags\":[\"bikes\"]"
+	
+	#Object ( $_text )	= "{\"city\":\"Oakland\"¶\"\"tags\":[\"bikes\"]}"
+	#Array ( "" )			= "{}"
+HISTORY:
+	Created:	2012-05-29 13:34 PT - Donovan Chandler
+	Modified:	
+*/

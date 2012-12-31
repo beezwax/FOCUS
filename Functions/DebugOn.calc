@@ -1,0 +1,14 @@
+Let ( [
+	$$_debug = True
+	] ;
+	$$_debug
+)
+
+/* __________________________________________________
+
+NAME:	DebugOn ( )
+PURPOSE:	Sets solution into debugging mode. Debug mode may prevent destructive actions, etc.
+HISTORY:
+	Created:	2012-03-13 20:55 PST - Donovan Chandler
+	Modified:	
+*/

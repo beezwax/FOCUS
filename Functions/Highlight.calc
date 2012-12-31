@@ -1,0 +1,9 @@
+Position ( FocusIDList ; id ; 1 ; 1 )
+
+/* __________________________________________________
+
+NAME:	Highlight ( id )
+PURPOSE:	Returns an integer (True) if the ID is in the focus list; otherwise False.
+HISTORY:	Created:	2012-03-14 12:05 CST - Will M. Baker
+		Modified:	
+*/

@@ -1,0 +1,11 @@
+PatternCount ( Get ( ApplicationVersion ) ; "server" ) > 0
+or Get ( AccountName ) = "xml_account"
+
+/* __________________________________________________
+
+NAME:	IsServer ( )
+PURPOSE:	Returns 1 (true) if current user is the server (scheduled script)
+IN:		<none>.
+HISTORY:	Created:	2012-03-09 16:04 PST - Donovan Chandler
+		Modified:	
+*/

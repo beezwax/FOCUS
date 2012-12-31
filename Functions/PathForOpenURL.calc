@@ -1,0 +1,12 @@
+"file:///" & PathStripDisk ( path )
+
+/* __________________________________________________
+
+NAME:	PathForOpenURL ( path )
+PURPOSE:	Returns path suitable for using in Open URL script step (opens dir in finder)
+EXAMPLES:
+	PathForOpenURL ( "/HD/Users/donovan/Desktop" ) = "file:///Users/donovan/Desktop"
+HISTORY:
+	Created:	2012-04-17 20:52 PST - Donovan Chandler
+	Modified:	
+*/

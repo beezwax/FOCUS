@@ -1,0 +1,11 @@
+Position ( Get ( HostApplicationVersion ) ; "Server" ; 1 ; 1 ) > 0
+
+/* __________________________________________________
+
+NAME:	IsHosted ( )
+PURPOSE:	Returns True if file is hosted, otherwise False.
+EXAMPLES:
+	
+HISTORY:
+	Created:	2012-04-27 11:36 PST - Donovan Chandler
+*/

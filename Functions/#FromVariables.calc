@@ -1,5 +1,5 @@
 If ( not IsEmpty ( variableNames ) ;
-	VariablesToHashLoop ( variableNames ; 1 ; "" )
+	#FromVariablesLoop ( variableNames ; 1 ; "" )
 )
 
 /* —————————————————————————————— //

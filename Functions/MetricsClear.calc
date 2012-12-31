@@ -1,0 +1,16 @@
+Let ( [
+	$$__metrics = ""
+	] ;
+	$$__metrics
+)
+
+/* __________________________________________________
+
+NAME:	MetricsClear ( )
+PURPOSE:	Clears values from metrics log. Large logs can impact performance.
+EXAMPLES:
+
+HISTORY:
+	Created:	2012-09-07 17:25 PT - Donovan Chandler
+	Modified:
+*/

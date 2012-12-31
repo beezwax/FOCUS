@@ -1,0 +1,13 @@
+Substitute ( lst ; ¶ ; ", " )
+
+/* —————————————————————————————— //
+NAME:
+	SqFieldList ( lst )
+
+PURPOSE:
+	Convert a carriage-return-delimited list to a comma-delimited list, for use in an SQL SELECT or ORDER BY clause.
+
+HISTORY:
+	Created: 2012-Sep-14 17h59 PST — Will M. Baker
+	Modified: 
+*/

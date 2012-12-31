@@ -1,0 +1,19 @@
+Let ( [
+	end = Position ( tableOccurrence ; "__" ; 1 ; 1 )
+	] ;
+	If (
+		end > 0 ; Left ( tableOccurrence ; end - 1 ) ;
+		tableOccurrence
+	)
+)
+
+/* __________________________________________________
+
+NAME:		TableOccurrenceBasetable ( tableOccurrence )
+PURPOSE:	Returns the name of the BaseTable for the specified table occurrence. Assumes that BaseTable is listed first in TO name, and is separated from other elements by a double underscore.
+EXAMPLES:
+	TableOccurrenceBasetable ( "MY_TABLE__MY_OTHER_TABLE__SELECTED" ) = "MY_TABLE"
+HISTORY:
+	Created:	2012-08-12 19:26 PT — Will M. Baker
+	Modified:	2012-06-09 20:49 PT - Donovan Chandler : Updated for FOCUS 4.0
+*/

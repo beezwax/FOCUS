@@ -1,20 +1,15 @@
 Substitute ( string ;
-  [ ":" ; "/:" ] ;
-  [ "=" ; "/=" ] ;
-  [ ">" ; "/>" ] ;
-  [ "<" ; "/<" ]
+	[ ":" ; "/:" ] ;
+	[ "=" ; "/=" ] ;
+	[ ">" ; "/>" ] ;
+	[ "<" ; "/<" ]
 )
 
-/* —————————————————————————————— //
-NAME:
-	#Encode ( string )
+/* __________________________________________________
 
-PURPOSE:
-	Escapes values in text that are reserved for #() function functionality
-
-EXAMPLES:
-	
-
-HISTORY:
-	Created: 2010-Aug-31 17h56 PST — Donovan A. Chandler
+NAME:	#Encode ( string )
+PURPOSE:	Escape out of a string the four characters we use to delimit our encoding.
+IN:		string (any text to be encoded)
+HISTORY:	Created:	2012-03-09 18:58 CST - Will M. Baker
+		Modified:	
 */

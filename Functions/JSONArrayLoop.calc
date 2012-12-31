@@ -1,0 +1,21 @@
+Case (
+	repMax < 1 or IsEmpty ( listOfValues ) ; previousResults ;
+	Let ( [
+		value = JSONEncodeStringOnly ( GetValue ( listOfValues ; 1 ) ) ;
+		listNew = If ( not IsEmpty ( previousResults ) ; previousResults & "," ) & value ;
+		listRemaining = MiddleValues ( listOfValues ; 2 ; repMax )
+		] ;
+		JSONArrayLoop ( listRemaining ; repMax - 1 ; listNew )
+	)
+)
+
+/* __________________________________________________
+
+NAME:	JSONArrayLoop ( listOfValues ; repMax ; previousResults )
+PURPOSE:	Performs recursion for JSONArray( )
+EXAMPLES:
+	
+HISTORY:
+	Created:	2012-05-29 12:23 PT - Donovan Chandler
+	Modified:	
+*/

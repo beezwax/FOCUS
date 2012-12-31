@@ -1,0 +1,14 @@
+Position ( ¶ & listOfValues & ¶ ; ¶ & searchValue & ¶ ; 1 ; 1 ) > 0
+
+/* __________________________________________________
+
+NAME:	ListContains ( listOfValues ; searchValue )
+PURPOSE:	Returns true if listOfValues contains match for searchValue
+EXAMPLES:
+	ListContains ( "foo¶fum" ; "FOO" ) = 1
+	ListContains ( "foo¶fum" ; "FOG" ) = 0
+HISTORY:
+	Created:	2012-03-15 21:59 PST - Donovan Chandler
+NOTES:
+	For case sensitive search, use ListFilterCustom()
+*/

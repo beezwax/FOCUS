@@ -1,0 +1,16 @@
+Let ( [
+	query = "SELECT " & SqField ( SOLUTION::ADMIN_EMAIL ) & " FROM " & SqTable ( SOLUTION::ID )
+	] ;
+	SQL ( query )
+)
+
+/* __________________________________________________
+
+NAME:	AdminEmail ( )
+PURPOSE:	Allows global retrieval of value in SOLUTION::ADMIN_EMAIL.
+EXAMPLES:
+	AdminEmail = "focus@beezwax.net"
+HISTORY:
+	Created:	2012-03-13 11:11 PST - Donovan Chandler
+	Modified:	
+*/

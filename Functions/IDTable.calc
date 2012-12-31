@@ -1,0 +1,11 @@
+Left ( id ; Position ( id ; "-" ; 1 ; 1 ) - 1 )
+
+/* __________________________________________________
+
+NAME:	IDTable ( id )
+PURPOSE:	Extracts the table name from a primary key.  One of the most important custom functions in the FOCUS framework, as it allows us to pass IDs around, and the receiving function can infer the table name from the ID, and therefore make contextual decisions accordingly.
+IN:		id
+EXAMPLE:	IDTable ( "FOCUS-002332d43572-63401238773-17" ) = "FOCUS"
+HISTORY:	Created:	2012-03-09 18:29 CST - Will M. Baker
+		Modified:	
+*/

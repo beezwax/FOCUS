@@ -1,0 +1,62 @@
+Case (
+	IsEmpty ( name ) ; JSONArrayValue ( text ; index ) ;
+
+	Let ( [
+		QuotationMark = Char ( 34 ) ;
+		textLen = Length ( text ) ;
+		whitespace =
+			Char ( 32 )	// space
+			& Char ( 9 )	// horizontal tab
+			& Char ( 10 )	// line feed
+			& Char ( 11 )	// vertical tab
+			& Char ( 12 )	// form feed
+			& Char ( 13 ) ;	// carriate return
+		nameStart = Position ( text ; JSONEncode ( name ) & ":" ; 1 ; index ) ;
+		delimStart = PositionUnescaped ( text ; ":" ; nameStart ; textLen ; 1 ) + 1 ;
+		valueStart = PositionIgnoring ( text ; whitespace ; delimStart ) ;
+		char1 = Middle ( text ; valueStart ; 1 ) ;
+		valueEnd =
+			Case (
+				char1 = QuotationMark ;
+					PositionUnescaped ( text ; char1 ; valueStart + 1 ; textLen ; 1 ) ;
+				char1 = "{" ;
+					TextClosePosition ( text ; "{" ; "}" ; valueStart ) ;
+				char1 = "[" ;
+					TextClosePosition ( text ; "[" ; "]" ; valueStart ) ;
+				0
+			) ;
+		value =
+			Case (
+				nameStart = 0 ; "?" ;
+				char1 = QuotationMark ;
+					Middle ( text ; valueStart + 1 ; valueEnd - valueStart - 1 ) ;
+				Middle ( text ; valueStart ; valueEnd - valueStart + 1 )
+			)
+		] ;
+	/*	// Used for debugging
+		"nameStart=" & nameStart & ", delimStart=" & delimStart & ", valueStart=" & valueStart & ¶ &
+		"valueStart=" & valueStart & ", valueEnd=" & valueEnd & ", char1=" & Quote ( char1 ) & ¶ &
+	*/
+
+		JSONDecode ( value)
+	)
+
+)
+
+/* __________________________________________________
+
+NAME:	JSONValueNth ( text ; name ; index )
+PURPOSE:	Retrieves value of specified pair.
+EXAMPLES:
+	Where $_text = "{\"a\":\"dog\",\"a\":{\"dog\"},\"a\":[\"dog\"]}"
+
+	#NthValue ( $_text ; "a" ; 1 )	= "dog"
+	#NthValue ( $_text ; "a" ; 2 )	= "{\"dog\"}"
+	#NthValue ( $_text ; "a" ; 3 )	= "[\"dog\"]"
+HISTORY:
+	Created:	2012-02-13 13:00 PT - Will M. Baker
+	Modified:	2012-05-29 12:00 PT - Donovan Chandler : nameStart now searches using #Encode() instead of Quote(); removed QuotationMark();
+	Modified:	2012-10-17 11:25 PT - Donovan Chandler : Added support for arrays. Fixed bug where nested arrays or objects were partially returned.
+NOTES:
+	All values must be wrapped in double quotes – even numbers!
+*/

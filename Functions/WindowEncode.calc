@@ -1,0 +1,13 @@
+# ( "WINDOW" ;
+	# ( "NAME" ; windowNm ) &
+	# ( "ID" ; winID )
+)
+
+/* __________________________________________________
+
+NAME:	WindowEncode ( windowNm ; winID )
+PURPOSE:	Encode the window name for placement in the window array. Use this function so that the window name is consistently encoded.
+IN:		<none>.
+HISTORY:	Created:	2012-04-25 10:37 PST - Will M. Baker
+		Modified:	
+*/

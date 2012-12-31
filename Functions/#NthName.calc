@@ -9,24 +9,20 @@ Let ( [
 
 	Case (
 		tagStart = 0
-		or PatternCount ( encodedString ; openString ) = 0
-		or PatternCount ( encodedString ; closeString ) = 0 ;
+		or Position ( encodedString ; openString ; 1 ; 1 ) = 0
+		or Position ( encodedString ; closeString ; 1 ; 1 ) = 0 ;
 			"" ;
 		name
 	)
 
 )
 
-/* —————————————————————————————— //
-NAME:
-	#NthName ( encodedString ; index )
+/* __________________________________________________
 
-PURPOSE:
-	Retrieves the name corresponding to the specified index from the encoded string.
-
+NAME:	#NthName ( encodedString ; index )
+PURPOSE:	Retrieves the name corresponding to the specified index from the encoded string.
 EXAMPLES:
 	#NthName ( "<:CITY:=Oakland:><:STATE:=California:>" ; 2 ) = "CITY"
-
 HISTORY:
-	Created: 2011-May-02 09h56 PST — Donovan Chandler using #Name() by Will
+	Created:	2011-05-02 09:56 PT - Donovan Chandler using #Name() by Will Baker
 */

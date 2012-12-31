@@ -1,0 +1,12 @@
+FOCUS::FOCUS_IDS_REP[WindowID]
+
+/* __________________________________________________
+
+NAME:	FocusIDList ( )
+PURPOSE:	Returns the carriage-return delimited list of IDs in the solution's FOCUS global.
+		1. Should contain at most one ID per table.
+		2. The custom function will NOT work in another solution unless the naming convention matches.
+		3. This is a field reference; renaming the field in the schema WILL update the field name here as well.
+HISTORY:	Created:	2012-03-09 18:59 CST - Will M. Baker
+		Modified:	
+*/

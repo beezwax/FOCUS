@@ -1,0 +1,10 @@
+#NodeArrayLoop ( encodedString ; pathToParent ; searchName ; searchValue ; returnName ; #ValueCount ( encodedString ; pathToParent ) ; 1 )
+
+/* __________________________________________________
+
+NAME:	#NodeArray ( encodedString ; pathToParent ; searchName ; searchValue ; returnName )
+PURPOSE:	Returns a column from an array, where a value in a related column matches a specified value..
+EXAMPLE:	
+HISTORY:	Created:	2012-03-12 16:15 CST - Will M. Baker
+		Modified:	
+*/

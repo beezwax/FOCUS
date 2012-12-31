@@ -1,0 +1,27 @@
+Let ([
+	input = #NthValue ( dialogHashContents ; "INPUT" ; rep ) ;
+	type = #Value (input ; "TYPE" ) ;
+	invalidTypes = "separator¶image¶link¶caption" ;
+	isValid = not ListContains ( invalidTypes ; type )
+	] ;
+	Case (
+		IsEmpty ( input ) ; previousResults ;
+		
+		DialogDataInputsLoop (
+			dialogHashContents ;
+			rep + 1 ;
+			List ( previousResults ; If ( isValid ; # ( "INPUT" ; input ) ) )
+		)
+	)
+)
+	
+/* __________________________________________________
+
+NAME:	DialogDataInputsLoop ( dialogHashContents ; rep ; previousResults )
+PURPOSE:	Returns DIALOG hash omitting INPUT elements that don't accept data entry.
+NOTES:
+	Used for cases where inputs need to be referenced in relation to results,
+	e.g., advanced filter dialogs in FOCUS 3.0.
+HISTORY:
+	Created:	2010-11-11 15:21 PST - Donovan A. Chandler
+*/

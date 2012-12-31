@@ -1,0 +1,13 @@
+Case (
+	rep > repMax ; "" ;
+	IDTable ( GetValue ( idList ; rep ) ) = table ; GetValue ( idList ; rep ) ;
+	TableFocusIDLoop ( idList ; table ; repMax ; rep + 1 )
+)
+
+/* __________________________________________________
+
+NAME:	TableFocusIDLoop ( idList ; table ; repMax ; rep )
+PURPOSE:	Looks in the list of provided IDs and returns the ID corresponding to the specified table.  Returns null if no ID is found.
+HISTORY:	Created:	2012-03-09 12:10 CST - Will M. Baker
+		Modified:	
+*/

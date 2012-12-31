@@ -1,0 +1,14 @@
+Let ( [
+	$$_debug = False
+	] ;
+	$$_debug
+)
+
+/* __________________________________________________
+
+NAME:	DebugOn ( )
+PURPOSE:	Takes solution out of debugging mode.
+HISTORY:
+	Created:	2012-03-13 20:55 PST - Donovan Chandler
+	Modified:	
+*/

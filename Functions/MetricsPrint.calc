@@ -1,0 +1,12 @@
+$$__metrics
+
+/* __________________________________________________
+
+NAME:	MetricsPrint ( )
+PURPOSE:	Displays metrics log being managed by Log function suite.
+EXAMPLES:
+
+HISTORY:
+	Created:	2012-09-07 17:25 PT - Donovan Chandler
+	Modified:
+*/

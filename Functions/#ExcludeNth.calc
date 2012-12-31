@@ -1,29 +1,25 @@
 Let ( [
-  match = "<:" & #Encode ( name ) & ":=" ;
-  start = Position ( encodedString ; match ; 1 ; rep ) ;
-  endMatch = ":>" ;
-  end = Position ( encodedString ; endMatch ; start ; 1 ) + Length ( endMatch ) - 1
-  ] ;
+	match = "<:" & #Encode ( name ) & ":=" ;
+	start = Position ( encodedString ; match ; 1 ; rep ) ;
+	endMatch = ":>" ;
+	end = Position ( encodedString ; endMatch ; start ; 1 ) + Length ( endMatch ) - 1
+	] ;
 
-  Case ( 
-    start = 0 ; encodedString ; 
-
-    Left ( encodedString ; start - 1 ) &
-    Middle ( encodedString ; end + 1; Length ( encodedString ) ) )
+	Case ( 
+		start = 0 ;
+			encodedString ; 
+		Left ( encodedString ; start - 1 ) &
+		Middle ( encodedString ; end + 1; Length ( encodedString ) ) )
 
 )
 
-/* —————————————————————————————— //
-NAME:
-	#ExcludeNth ( encodedString ; name ; rep )
+/* __________________________________________________
 
-PURPOSE:
-	Returns encodedString with Nth occurrence of name element removed.
-
+NAME:		#ExcludeNth ( encodedString ; name ; rep )
+PURPOSE:	Returns encodedString with Nth occurrence of name element removed.
 EXAMPLES:
-	#ExcludeNth ( "<:CITY:=Oakland:><:CITY:=Cupertino:>" ; "CITY" ; 2 ) =
-	"<:CITY:=Oakland:>"
-
+	#ExcludeNth ( "<:CITY:=Oakland:><:CITY:=Cupertino:>" ; "CITY" ; 2 )
+	= "<:CITY:=Oakland:>"
 HISTORY:
-	Created: 2010-Oct-25 09h36 PST — Donovan Chandler
+	Created:	2010-10-25 09:36 PST - Donovan Chandler
 */

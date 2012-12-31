@@ -1,0 +1,16 @@
+#Value ( Get ( ScriptParameter ) ; name )
+
+/* __________________________________________________
+
+NAME:	#P ( name )
+PURPOSE:	Extract the value corresponding to the named parameter from the script parameter.
+		Assumes that each script parameter contains unique (non-repeated) named parameters. If multiple parameters of the same name must be passed, encode these together as a single array.
+		Script parameters are strictly text.  If a script is expecting a non-text value, e.g. a numeric value, the script should immediately recast the value as the expected type: GetAsNumber ( #P ( "POPULATION" ) ).  This is crucial when doing numeric comparisons, as "3" > "10".
+IN:		name (the name of the value to be return)
+EXAMPLES:
+		#P ( "POPULATION" ) = "395274"
+		where the script parameter is "<:CITY:=Oakland:><:POPULATION:=395274:>"
+		GetAsNumber ( #P ( "POPULATION" ) ) = 395274
+HISTORY:	Created:	2012-03-09 11:37 CST - Will M. Baker
+		Modified:	
+*/

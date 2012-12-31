@@ -4,21 +4,11 @@
 #Encode ( value ) &
 ":>"
 
-/* —————————————————————————————— //
-NAME:
-	# ( name ; value )
+/* __________________________________________________
 
-PURPOSE:
-	Encode a text string as a name/value pair.  To be decoded by another function.
-
-EXAMPLES:
-	# ( "CITY"; "Oakland" ) = "<:CITY:=Oakland:>"
-	# ( "LIST"; "Apple¶Orange¶Plum" ) = "<:LIST:=Apple\¶Orange\¶Plum:>"
-
-HISTORY:
-	Created: 2007 by Jesse Antunes of six.fried.rice
-	Modified: 2010-Feb-08 14h13 PST — Will M. Baker ; now escapes carriage returns in value.
-	Modified: 2010-Mar-17 17h44 PST — Will M. Baker ; wasn't properly encoding the carriage return.
-	Modified: 2010-Aug-31 17h58 PST — Donovan Chandler ; removed escaping of carriage return and moved encoding into subfunction
-	Modified: 2010-Oct-25 09h42 PST — Donovan Chandler ; now encodes name parameter
+NAME:	# ( name ; value )
+PURPOSE:	Encode a name/value pair. Used in parameter passing (to scripts, other fields, etc.).
+IN:		name (that identifies/labels the value); value.
+HISTORY:	Created:	2012-03-09 18:29 CST - Will M. Baker
+		Modified:	
 */

@@ -1,0 +1,12 @@
+$$__metrics_enabled
+
+/* __________________________________________________
+
+NAME:	MetricsAreOn ( )
+PURPOSE:	Returns True if metrics log is enabled.
+EXAMPLES:
+
+HISTORY:
+	Created:	2012-09-07 16:20 PT - Donovan Chandler
+	Modified:
+*/

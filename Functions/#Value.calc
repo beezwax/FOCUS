@@ -1,18 +1,12 @@
 #NthValue ( encodedString ; name ; 1 )
 
-/* —————————————————————————————— //
-NAME:
-	#Value ( encodedString ; name )
+/* __________________________________________________
 
-PURPOSE:
-	Retrieves the value from the encoded string corresponding to the specified name.  This function is employed by the often-used #P and #R functions, but is also called directly by various calculations wanting to decode a string they were passed by a means other than via a script parameter/result.
-
+NAME:	#Value ( encodedString ; name )
+PURPOSE:	Retrieve the 1st matching value from an encoded string (which might be several encoded strings lumped together). This is a shell script, designed to save a developer from having to constantly specify the first value via #NthValue, which we anticipate is the most common use of #NthValue.
+IN:		encodedString (any text to be decoded); name (the name of the value to be return)
 EXAMPLES:
-	#Value ( "<:CITY:=Oakland:>" ; "CITY" ) = "Oakland"
-
-HISTORY:
-	Created: 2007 by Jesse Antunes of six.fried.rice as DictGet()
-	Modified: 2010-Jan-29 17h00 PST — Will M. Baker
-	Modified: 2010-Mar-17 17h45 PST — Will M. Baker ; Wasn't properly decoding the carriage return.
-	Modified: 2010-Aug-31 18h00 PST — Donovan Chandler ; Removed need to decode carriage return and moved logic into #NthValue()
+		#Value ( "<:CITY:=Oakland:><:CITY:=Cupertino:>" ; "CITY" ) = "Oakland"
+HISTORY:	Created:	2012-03-09 19:08 CST - Will M. Baker
+		Modified:	
 */

@@ -1,0 +1,13 @@
+Let ( [
+	$$_triggers_off = ""
+	] ;
+	""
+)
+
+/* __________________________________________________
+
+NAME:	TriggersOn ( )
+PURPOSE:	Ensures TriggersAreOff( ) returns False.
+HISTORY:
+	Created:	2012-12-31 11:48 PT - Donovan Chandler using function by Will M. Baker
+*/

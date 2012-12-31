@@ -1,26 +1,27 @@
 Let ( [
-	delimiter = "::‡::"
+	cleanString = Substitute ( text ; ¶ ; "" ) ;
+	first = Left ( cleanString ; 1 ) ;
+	leftPosition = Position ( text ; first ; 1 ; 1 ) ;
+	last = Right ( cleanString ; 1 ) ;
+	rightPosition = Position ( text ; last ; Length ( text ) ; -1 )
 	] ;
-	Substitute (
-		Trim (
-			Substitute ( text ;
-				[ " " ; delimiter ] ;
-				[ ¶ ; " " ]
-			)
-		) ;
-		[ " " ; ¶ ] ;
-		[ delimiter ; " " ]
-	)
+
+	Middle ( text ; leftPosition ; rightPosition - leftPosition + 1 )
+
 )
 
-/* —————————————————————————————— //
-NAME:
-	ListTrimCR ( text )
-	
-PURPOSE:
-	Trims leading and trailing carriage returns from text
-	
+/* __________________________________________________
+
+NAME:	TrimCR ( text )
+PURPOSE:	Removes leading and trailing carriage returns from text.
+EXAMPLES:
+	TrimCR ( "¶¶text¶" ) = "text"
+NOTES:
+	This method has been found to be faster than several other methods:
+	- Substituting returns out for spaces and using Trim()
+	- Testing left-most and right-most characters recursively
 HISTORY:
-	Created: 2009-Jan-13 — Charlie (http://www.fmfunctions.com/mid/132)
-	Adapted: 2010-Aug-09 10h17 PST — Donovan A. Chandler
+	Created: 2010-10-21 12:00 PST - Salvatore Colangelo
+	Modifed: 2010-11-07 12:12 PST - Will M. Baker ; slight modifications to Salvatore's solution to bring in line with our naming conventions.
+	Modified: 2012-01-10 10:34 PST - Donovan Chandler ; updated comments and removed sample of Will's previous version.
 */

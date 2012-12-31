@@ -1,0 +1,14 @@
+#NthValue ( Get ( ScriptResult ) ; name ; rep )
+
+/* —————————————————————————————— //
+NAME:	#NthResult ( name ; rep )
+PURPOSE:	Parses script result to return value of Nth occurrence of named pair.
+NOTES:
+	Two words of caution:
+		1) Typically scripts are expecting specific parameters.  If you intend to pass a carriage-return delimited list of similar encoded values, you should probably encode the entire list again as a single unit; the script could then decode that single unit, and then begin to digest each encoded line as needed.
+		2) Script parameters are strictly text.  If a script is expecting a non-text value, e.g. a numeric value, the script should immediately recast the value as the expected type: GetAsNumber ( #P ( "POPULATION" ) ).  This is crucial when doing numeric comparisons like "3" > "10".
+
+HISTORY:
+	Created: 2010-08-22 11:09 PST - Will M. Baker
+	Modified:	2012-04-16 09:35 PST - Donovan Chandler : Updated formatting; revised docs.
+*/

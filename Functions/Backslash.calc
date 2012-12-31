@@ -1,0 +1,12 @@
+Char ( 92 )
+
+/* __________________________________________________
+
+NAME:	Backslash ( )
+PURPOSE:	Returns backslash used for escaping characters in # ( ) function suite.
+EXAMPLES:
+	
+HISTORY:
+	Created:	2012-02-13 13:00 PT - Will M. Baker
+	Modified:	
+*/

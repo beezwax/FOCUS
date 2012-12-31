@@ -1,0 +1,51 @@
+Let ( [
+	pathDelimeter = Position ( path ; "/" ; 1 ; 1 ) ;
+	fullName = Case ( pathDelimeter ; Left ( path ; pathDelimeter - 1 ) ; path ) ;
+	rep = TextBetween ( fullName ; "[" ; "]" ; 1 ) ;
+	name = Case ( IsEmpty ( rep ) ; fullName ; Left ( fullName ; Position ( fullName ; "[" ; 1 ; 1 ) - 1 ) ) ;
+	rep = Case ( IsEmpty ( rep ) ; 0 ; rep ) ;
+	newPath = Case ( pathDelimeter > 0 ; Right ( path ; Length ( path ) - pathDelimeter ) ; "" ) ;
+	newString = Case (
+		rep > 0 and IsEmpty ( newPath ) ; #NthValue ( encodedString ; name ; rep ) ;
+		rep > 0 ; #NodeColumn ( #NthValue ( encodedString ; name ; rep ) ; newPath ) ;
+		#NodeColumnLoop ( encodedString ; name ; #ValueCount ( encodedString ; name ) ; 1 )
+		)
+	] ;
+
+	Case (
+		IsEmpty ( newPath ) or rep > 0 ; newString ;
+		#NodeColumn ( newString ; newPath )
+	)
+
+)
+
+
+/* __________________________________________________
+
+NAME:	#NodeColumn ( encodedString ; path )
+PURPOSE:	Returns a return-delimited list of all values in the column at the specified path, n levels deep..
+EXAMPLES:
+	Where $_encoded_string is the following:
+
+	# ( "LEVEL" ;
+		# ( "COLOR" ; "Red" ) &
+		# ( "COLOR" ; "Blue" )
+		) &
+	# ( "LEVEL" ;
+		# ( "COLOR" ; "Yellow" ) &
+		# ( "COLOR" ; "Green" )
+		)
+
+	#NodeColumn ( $_encoded_string ; "Level" ) = "<:COLOR:=Red:><:COLOR:=Blue:><:COLOR:=Yellow:><:COLOR:=Green:>"
+	#NodeColumn ( $_encoded_string ; "Level/Color" ) = "Red¶Blue¶Yellow¶Green"
+	#NodeColumn ( $_encoded_string ; "Level[1]/Color" ) = "Red¶Blue"
+	#NodeColumn ( $_encoded_string ; "Level[1]/Color[1]" ) = "Red"
+	#NodeColumn ( $_encoded_string ; "Level[2]/Color" ) = "Yellow¶Green"
+	#NodeColumn ( $_encoded_string ; "Level[2]/Color[2]" ) = "Green"
+	#NodeColumn ( $_encoded_string ; "Level/Color[1]" ) = "Red" (perhaps should return "Red¶Yellow")
+	#NodeColumn ( $_encoded_string ; "Level/Color[2]" ) = "Blue" (perhaps should return "Blue¶Green")
+	#NodeColumn ( $_encoded_string ; "Level/Color[3]" ) = "Yellow" (perhaps should return null)
+
+HISTORY:	Created:	2012-03-12 16:11 CST - Will M. Baker
+		Modified:	
+*/

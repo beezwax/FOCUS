@@ -1,0 +1,13 @@
+GetAsNumber ( #R ( "ERROR" ) )
+
+/* __________________________________________________
+
+NAME:	#Error (  )
+PURPOSE:	Returns the error returned as a script result.
+IN:		<none>.
+EXAMPLES:
+		#Error ( ) = 0
+		where the script result is "<:ERROR:=0:><:CITY:=Oakland:><:POPULATION:=395274:>"
+HISTORY:	Created:	2012-03-09 11:40 CST - Will M. Baker
+		Modified:	
+*/

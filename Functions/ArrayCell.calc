@@ -1,0 +1,27 @@
+Let ( [
+	row  = 
+		TextBetween ( rowDelimiter & array & rowDelimiter ;
+			rowDelimiter ;
+			rowDelimiter ;
+			rowIndex
+		) ;
+	cell =
+		TextBetween ( columnDelimiter & row & columnDelimiter ;
+			columnDelimiter ;
+			columnDelimiter ;
+			columnIndex
+		)
+	] ;
+	cell
+)
+
+/* __________________________________________________
+
+NAME:	ArrayCell ( array ; columnIndex ; columnDelimiter ; rowIndex ; rowDelimiter )
+PURPOSE:	Returns cell value from 2-dimensional array
+EXAMPLES:
+	ArrayCell ( "City|State¶Oakland|CA¶Portland|OR" ; 2 ; "|" ; 2 ; ¶ ) = "CA"
+HISTORY:
+	Created:	2012-10-12 19:06 PT - Donovan Chandler
+	Modified:	2012-05-25 11:27 PT - Donovan Chandler : Added rowDelimiter param; now uses TextBetween( ).
+*/

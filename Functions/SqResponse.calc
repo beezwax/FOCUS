@@ -1,0 +1,22 @@
+ArrayCell (
+	array ;
+	columnIndex ;
+	SqFieldSeparator ;
+	rowIndex ;
+	SqRowSeparator
+)
+
+/* __________________________________________________
+
+NAME:	SqResponse ( array ; columnIndex ; rowIndex )
+PURPOSE:	Returns value from SQL response.
+		Used when array of columns is returned.
+EXAMPLES:
+	$_array = ExecuteSQL ( "SELECT city, state FROM table" ; "††" ; "‡‡" )
+	//= "Oakland††CA‡‡Portland††OR"
+	
+	SqResponse ( $_array ; 2 ; 2 ) //= "OR"
+HISTORY:
+	Created:	2012-05-25 10:49 PST - Donovan Chandler
+	Modified:	
+*/

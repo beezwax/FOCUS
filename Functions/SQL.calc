@@ -1,0 +1,12 @@
+ExecuteSQL ( sqlQuery ; SqFieldSeparator ; SqRowSeparator )
+
+/* __________________________________________________
+
+NAME:	SQL ( sqlQuery )
+PURPOSE:	Wrapper for ExecuteSQL ( ) function.
+EXAMPLES:
+	
+HISTORY:
+	Created:	2012-03-13 11:18 PST - Donovan Chandler
+	Modified:	
+*/

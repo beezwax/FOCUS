@@ -1,0 +1,12 @@
+DialogDataInputsLoop ( dialogHashContents ; 1 ; "" )
+
+/* __________________________________________________
+
+NAME:		DialogDataInputs ( dialogHashContents )
+PURPOSE:	Returns DIALOG hash omitting INPUT elements that don't accept data entry.
+NOTES:
+	Used for cases where inputs need to be referenced in relation to results,
+	e.g., advanced filter dialogs in FOCUS 3.0.
+HISTORY:
+	Created:	2010-11-11 17:43 PST - Donovan A. Chandler
+*/

@@ -1,5 +1,5 @@
 Case (
-	
+
 	rep ≤ repMax ;
 		Let ( [
 			name = #NthName ( encodedString ; rep ) ;
@@ -7,20 +7,17 @@ Case (
 			];
 			#NameAllLoop ( encodedString ; rep + 1 ; repMax ; result )
 		) ;
-	
+
 	previousResults
+
 )
 
-/* —————————————————————————————— //
-NAME:
-	#NameAllLoop ( encodedString ; rep ; repMax ; previousResults )
+/* __________________________________________________
 
-PURPOSE:
-	Returns name of each name-value pair at root level of encoded string.
-
+NAME:	#NameAllLoop ( encodedString ; rep ; repMax ; previousResults )
+PURPOSE:	Returns name of each name-value pair at root level of encoded string.
 EXAMPLES:
 	#Name ( "<:STATE:=/</:CITY/:/=OAKLAND/:/>:><:COUNTRY:=USA:>" ) = "STATE¶COUNTRY"
-
 HISTORY:
-	Created: 2011-May-02 10h17 PST — Donovan Chandler
+	Created:	2011-05-02 10:17 PT - Donovan Chandler
 */

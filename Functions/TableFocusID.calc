@@ -1,0 +1,14 @@
+TableFocusIDLoop 2 (
+	FOCUS::FOCUS_IDS ;
+	table ;
+	ValueCount ( FOCUS::FOCUS_IDS ) ;
+	1
+)
+
+/* __________________________________________________
+
+NAME:	TableFocusID ( idList ; table ; repMax ; rep )
+PURPOSE:	Returns first ID selected for given table (for current window).  Returns null if no ID is found.
+HISTORY:	Created:	2012-06-09 15:13 PT - Donovan Chandler
+		Modified:	
+*/

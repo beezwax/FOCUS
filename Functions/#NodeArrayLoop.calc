@@ -1,0 +1,22 @@
+Case (
+	rep > repMax ; "" ;
+	Let ( [
+		node = #NodeColumn ( encodedString ; pathToParent & "[" & rep & "]" ) ;
+		value = #Value ( node ; searchName ) ;
+		return = Case ( ValueCount ( FilterValues ( value ; searchValue ) ) ; #Value ( node ; returnName ) ; "" )
+		] ;
+
+		List ( return ; #NodeArrayLoop ( encodedString ; pathToParent ; searchName ; searchValue ; returnName ; repMax ; rep + 1 ) )
+
+	) // end Let
+
+) // end Case
+
+/* __________________________________________________
+
+NAME:	#NodeArrayLoop ( encodedString ; pathToParent ; searchName ; searchValue ; returnName ; repMax ; rep )
+PURPOSE:	Returns a column from an array, where a value in a related column matches a specified value..
+EXAMPLE:	
+HISTORY:	Created:	2012-03-12 16:15 CST - Will M. Baker
+		Modified:	
+*/

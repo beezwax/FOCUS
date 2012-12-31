@@ -17,25 +17,21 @@ Let ( [
 	)
 )
 
-/* —————————————————————————————— //
-NAME:
-	#ToVariablesLoop ( encodedString ; names ; defaultScopePrefix ; rep )
+/* __________________________________________________
 
-PURPOSE:
-	Sets values from hash to variables by same names.
-
+NAME:		#ToVariablesLoop ( encodedString ; names ; defaultScopePrefix ; rep )
+PURPOSE:	Sets values from hash to variables by same names.
 EXAMPLES:
 	Where $_hash = "<:$$_animal:=dog:><:error:=0:>"
-
+	
 	#ToVariables ( $_hash ; "$$_animals" ; "$" ; 1 ) = 0
 	Producing variables $$_animals
-
+	
 	#ToVariables ( $_hash ; "" ; "$" ; 1 ) = 0
 	Producing variables $$_animals, $_error
-
-NOTES:
+	
+	NOTES:
 	Name parameter is optional.  If missing, function will iterate thru all name-value pairs at root level.
-
 HISTORY:
-	Created: 2011-Apr-29 20h26 PST — Donovan A. Chandler
+	Created:	2011-04-29 20:26 PST - Donovan A. Chandler
 */

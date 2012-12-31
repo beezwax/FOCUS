@@ -1,20 +1,16 @@
 #NameAllLoop (
 	encodedString ;
 	1 ;
-	PatternCount ( encodedString ; "<:" ) ;
+	Position ( encodedString ; "<:" ; 1 ; 1 ) > 0 ;
 	""
 )
 
-/* —————————————————————————————— //
-NAME:
-	#NameAll ( encodedString )
+/* __________________________________________________
 
-PURPOSE:
-	Returns name of each name-value pair at root level of encoded string.
-
+NAME:	#NameAll ( encodedString )
+PURPOSE:	Returns name of each name-value pair at root level of encoded string.
 EXAMPLES:
 	#Name ( "<:STATE:=/</:CITY/:/=OAKLAND/:/>:><:COUNTRY:=USA:>" ) = "STATE¶COUNTRY"
-
 HISTORY:
-	Created: 2011-May-02 10h17 PST — Donovan Chandler
+	Created:	2011-05-02 10:17 PT - Donovan Chandler
 */

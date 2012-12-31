@@ -1,0 +1,12 @@
+Substitute ( sqlList ; SqRowSeparator ; "¶" )
+
+/* __________________________________________________
+
+NAME:	SqListConvertSqlToFileMaker ( sqlList )
+PURPOSE:	Convert an SQL list to a FileMaker list.
+EXAMPLE: SqListConvertSqlToFileMaker ( "Peach‡‡Plum‡‡Pear" ) = "Peach¶Plum¶Pear"
+
+HISTORY:
+	Created:	2012-11-29 15:57 PST - Will M. Baker
+	Modified:	
+*/

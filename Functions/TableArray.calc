@@ -1,0 +1,9 @@
+FOCUS::TABLE_ARRAY
+
+/* __________________________________________________
+
+NAME:	TableArray
+PURPOSE:	Return the table array. Minimizes the references to schema.
+HISTORY:	Created:	2012-03-12 16:19 CST - Will M. Baker
+		Modified:	
+*/

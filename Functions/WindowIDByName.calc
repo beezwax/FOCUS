@@ -1,0 +1,10 @@
+GetAsNumber ( #NodeArray ( FOCUS::WINDOW_ARRAY ; "WINDOW" ; "NAME" ; windowNm ; "ID" ) )
+
+/* __________________________________________________
+
+NAME:	WindowIDByName ( windowNm )
+PURPOSE:	Extract the unique (by user session) index number for the current window.
+IN:		<none>.
+HISTORY:	Created:	2012-03-12 11:27 CST - Will M. Baker
+		Modified:	2012-04-20 14:21 PST - Will M. Baker. Now extracts ID from array, instead of from window name.
+*/

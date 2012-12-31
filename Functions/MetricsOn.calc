@@ -1,0 +1,16 @@
+Let ( [
+	$$__metrics_enabled = True
+	] ;
+	$$__metrics_enabled
+)
+
+/* __________________________________________________
+
+NAME:	MetricsOn ( )
+PURPOSE:	Enables metrics log.
+EXAMPLES:
+
+HISTORY:
+	Created:	2012-09-07 16:21 PT - Donovan Chandler
+	Modified:
+*/
