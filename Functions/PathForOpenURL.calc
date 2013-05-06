@@ -1,12 +1,21 @@
-"file:///" & PathStripDisk ( path )
+If (
+	IsMac ; "file://" & PathStripDisk ( path ) ;
+	PathStripPrefix ( path )
+)
 
 /* __________________________________________________
 
-NAME:	PathForOpenURL ( path )
+NAME:	PathOpenURL ( path )
 PURPOSE:	Returns path suitable for using in Open URL script step (opens dir in finder)
 EXAMPLES:
-	PathForOpenURL ( "/HD/Users/donovan/Desktop" ) = "file:///Users/donovan/Desktop"
+	// Where desktop path = "/Macintosh HD/Users/donovan/Desktop/"
+	PathOpenURL ( Get ( DesktopPath ) )
+	= "file:///Users/donovan/Desktop/"
+
+	// Where desktop path = "/C:/Users/Donovan/Desktop/"
+	PathOpenURL ( Get ( DesktopPath ) )
+	= "C:/Users/Donovan/Desktop/"
 HISTORY:
-	Created:	2012-04-17 20:52 PST - Donovan Chandler
+	Created:	2012-04-17 20:52 PT - Donovan Chandler
 	Modified:	
 */

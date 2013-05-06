@@ -17,20 +17,17 @@ Let ( [
 	; value = #NthValue ( encodedString ; name ; rep )
 	] ;
 
-	Case ( 
+	Case (
 		IsEmpty ( newPath ) ; value
 		; #Node ( value ; newPath )
 	)
 
 )
 
-/* —————————————————————————————— //
-NAME:
-	#Node ( encodedString ; path )
+/* __________________________________________________
 
-PURPOSE:
-	Returns the encoded value contained within the specified node, n levels deep.
-
+NAME:	#Node ( encodedString ; path )
+PURPOSE:	Returns the encoded value contained within the specified node, n levels deep.
 EXAMPLES:
 	Where $_encoded_string is the following:
 
@@ -49,8 +46,7 @@ EXAMPLES:
 	#Node ( $_encoded_string ; "Level/Color[2]" ) = "Blue"
 	#Node ( $_encoded_string ; "Level[2]/Color[2]" ) = "Green"
 	#Node ( $_encoded_string ; "[2]/Color[2]" ) = "Green"
-
 HISTORY:
-	Created: 2010-Oct-15 11h48 PST — Will M. Baker. Idea by Donovan Chandler.
-	Modified: 2012-Feb-11 13h38 PST — Donovan Chandler. Node name now optional when index given.
+	Created:	2010-10-15 11:48 PST - Will M. Baker. Idea by Donovan Chandler.
+	Modified:	2012-02-11 13:38 PST - Donovan Chandler. Node name now optional when index given.
 */

@@ -1,15 +1,13 @@
-Case ( IsEmpty ( $$_negative_space ) ; -10000 ; 0 )
+If ( IsEmpty ( $$_negative_space ) ; -10000 ; 0 )
 
-/* —————————————————————————————— //
-NAME:
-	NegativeSpace ( )
+/* __________________________________________________
 
-PURPOSE:
-	A constant value, describing the off-screen location of all new windows.  Use as both the WindowLeft and WindowTop arguments.
-
+NAME:	NegativeSpace ( )
+PURPOSE:	A constant value, describing the off-screen location of all new windows.  Use as both the WindowLeft and WindowTop arguments.
 EXAMPLES:
 	
 HISTORY:
-	Created: 2010-Feb-10 20h18 PST — Will M. Baker
-	Modified: 2010-Apr-09 17h00 PST — Will M. Baker ; added check for $$_negative_space global variable; if developer wants to see windows appear on screen, just declare a variable in the data viewer of Let ( $$_negative_space = 1 ; "" ).
+	Created:	2010-02-10 20:18 PST - Will M. Baker
+	Modified:	2010-04-09 17:00 PST - Will M. Baker ; added check for $$_negative_space global variable; if developer wants to see windows appear on screen, just declare a variable in the data viewer of Let ( $$_negative_space = 1 ; "" ).
+	Modified:	2013-01-09 15:58 PT - Donovan Chandler : updated formatting.
 */
