@@ -1,11 +1,21 @@
 Let ( [
 	error = EvaluationError ( GetFieldName ( field ) ) ;
-	fieldName = If ( error ; field ; GetFieldName ( field ) ) ;
-	fieldList = Substitute ( fieldName ; "::" ; ¶ ) ;
-	table = GetValue ( fieldList ; 1 ) ;
-	field = GetValue ( fieldList ; ValueCount ( fieldList ) )
+	fieldNameRaw = If ( error ; field ; GetFieldName ( field ) ) ;
+
+	//-- Extract repetition
+	fieldList = Substitute ( fieldNameRaw ; [ "[" ; "¶" ] ; [ "]" ; "" ] ) ;
+	fieldNameFull = GetValue ( fieldList ; 1 ) ;
+	fieldRep = GetValue ( fieldList ; 2 ) ;
+
+	//-- Extract table and field
+	fieldNameList = Substitute ( fieldNameFull ; "::" ; ¶ ) ;
+	fieldNameListCnt = ValueCount ( fieldNameList ) ;
+	table = GetValue ( fieldNameList ; 1 ) ;
+	field = GetValue ( fieldNameList ; fieldNameListCnt )
 	];
-	Lower ( Quote ( table ) ) & "." & Lower ( Quote ( field ) )
+	If ( not IsEmpty ( table ) ; Lower ( Quote ( table ) ) & "." ) &
+	Lower ( Quote ( field ) ) &
+	If ( not isEmpty ( fieldRep ) ; "[" & fieldRep & "]" )
 )
 
 /* __________________________________________________
@@ -13,10 +23,15 @@ Let ( [
 NAME:	SqField ( field )
 PURPOSE:	Returns name of field for use in SQL statements. Accepts field reference or name of field.
 EXAMPLES:
-	SqField ( "CONTACT::Name" ) = "contact"."name"
-	SqField ( GetFieldName ( CONTACT::Name" ) ) = "contact"."name"
+	SqField ( "CONTACT::Name" )		= "\"contact\".\"name\""
+	SqField ( CONTACT::Name[3] )		= "\"contact\".\"name\"[3]"
+	SqField ( "Name" )				= "\"name\""
+	SqField ( GetFieldName ( CONTACT::Name" ) )	= "\"contact\".\"name\""
+
 HISTORY:
-	Created:	2011-11-04 16:45 PST - Donovan Chandler
-	Modified:	2011-11-28 14:20 PST - Donovan Chandler ; added support for field name if reference fails; also returns field name of no table is provided
-	Modified:	2012-12-10 14:28 PST - Will M. Baker ; uses error-free logic to test for field name or field referenced; quotes table name.
+	Created:	2011-11-04 16:45 PT - Donovan Chandler
+	Modified:	2011-11-28 14:20 PT - Donovan Chandler : added support for field name if reference fails; also returns field name of no table is provided
+	Modified:	2012-12-10 14:28 PT - Will M. Baker : uses error-free logic to test for field name or field referenced; quotes table name.
+	Modified:	2013-02-18 12:50 PT - Donovan Chandler : returns just field name if table is missing.
+	Modified:	2013-05-16 12:51 PT - Donovan Chandler : places field repetition outside field quotes.
 */

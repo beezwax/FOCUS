@@ -1,13 +1,24 @@
-Substitute ( lst ; ¶ ; ", " )
+Let ( [
+	value = GetValue ( listOfFieldNames ; 1 ) ;
+	valueNew = SqField ( value ) ;
+	valueCnt = ValueCount ( listOfFieldNames )
+	] ;
+	Case (
+		valueCnt ≤ 1 ; valueNew ;
+		valueNew & ", " & SqFieldList ( RightValues ( listOfFieldNames ; valueCnt - 1 ) )
+	)
+)
 
-/* —————————————————————————————— //
-NAME:
-	SqFieldList ( lst )
+/* __________________________________________________
 
-PURPOSE:
-	Convert a carriage-return-delimited list to a comma-delimited list, for use in an SQL SELECT or ORDER BY clause.
-
+NAME:	SqFieldList ( listOfFieldNames )
+PURPOSE:	Converts return-delimited list of field names into SQL-friendly list of escaped field references. Use in SQL SELECT or ORDER BY clauses.
+EXAMPLES:
+	SqFieldList ( List (
+		GetFieldName ( account::id_person ) ;
+		GetFieldname ( ACCOUNT::PRIVILEGE_NAME_LT )
+	) ) = "\"account\".\"id_person\", \"account\".\"privilege_name_lt\""
 HISTORY:
-	Created: 2012-Sep-14 17h59 PST — Will M. Baker
-	Modified: 
+	Created:	2013-02-18 12:31 PT - Donovan Chandler : replaced previous function that didn't escape field names.
+	Modified:	
 */
