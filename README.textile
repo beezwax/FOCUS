@@ -1,6 +1,8 @@
+!https://blog.beezwax.net/wp-content/uploads/2016/01/beezwax-logo-github.png(Beezwax Logo)!:https://beezwax.net
+
 h1. FOCUS
 
-FOCUS is a framework for developing FileMaker solutions. It's a set of guidelines, a method of developing and designing, and a starter file that will help get a project started. See "focus.beezwax.net":http://focus.beezwax.net for more info.
+FOCUS is a framework for developing FileMaker solutions. It's a set of guidelines, a method of developing and designing, and a starter file that will help get a project started.
 
 h1. Repository Structure
 
@@ -12,6 +14,6 @@ h1. Repository Structure
 Note, this structure no longer applies to the "#" functions. They have all been moved into the Functions directory to make them more discoverable by guest developers.
 
 
-h1. Support
+<p><hr></p>
 
-For more information, please see the project "wiki":http://focus.beezwax.net.
+h6. Created by <a href="http://beezwax.net">Beezwax</a>
